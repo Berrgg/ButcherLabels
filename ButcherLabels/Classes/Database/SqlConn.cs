@@ -12,6 +12,12 @@ namespace ButcherLabels.Classes.Database
                 _connectionString = connectionString.ConnString();
         }
 
+        public SqlConnection GetSqlConnection()
+        {
+            SqlConnection sqlConn = new SqlConnection(_connectionString);
+            return sqlConn;
+        }
+
         public bool TestConnection()
         {
             var conn = new SqlConnection(_connectionString);
