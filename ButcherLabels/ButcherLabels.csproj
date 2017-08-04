@@ -59,6 +59,7 @@
     <Compile Include="Classes\Database\IConnectionString.cs" />
     <Compile Include="Classes\Database\SqlConn.cs" />
     <Compile Include="Classes\Database\SqlConnectionString.cs" />
+    <Compile Include="Classes\Database\SqlDataTable.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
