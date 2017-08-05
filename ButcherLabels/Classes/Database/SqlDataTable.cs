@@ -8,7 +8,7 @@ namespace ButcherLabels.Classes.Database
     {
         public SqlConnection _sqlConnection { get; private set; }
 
-        public DataTable GetDatatable(SqlConnection sqlConn, string sqlQuery)
+        public static DataTable GetDatatable(SqlConnection sqlConn, string sqlQuery)
         {
             DataTable dt = new DataTable();
             SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery,sqlConn);

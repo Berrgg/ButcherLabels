@@ -6,10 +6,10 @@ namespace ButcherLabels.Classes.Database
     {
         public string _connectionString { get; private set; }
 
-        public SqlConn(IConnectionString connectionString)
+        public SqlConn(string connectionString)
         {
             if(connectionString != null)
-                _connectionString = connectionString.ConnString();
+                _connectionString = connectionString;
         }
 
         public SqlConnection GetSqlConnection()
