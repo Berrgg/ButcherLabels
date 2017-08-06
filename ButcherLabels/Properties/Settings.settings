@@ -14,13 +14,13 @@
     <Setting Name="User" Type="System.String" Scope="User">
       <Value Profile="(Default)">siuser</Value>
     </Setting>
-    <Setting Name="Login" Type="System.String" Scope="User">
+    <Setting Name="Password" Type="System.String" Scope="User">
       <Value Profile="(Default)">si</Value>
     </Setting>
     <Setting Name="UserSI" Type="System.String" Scope="User">
       <Value Profile="(Default)">siuser</Value>
     </Setting>
-    <Setting Name="LoginSI" Type="System.String" Scope="User">
+    <Setting Name="PasswordSI" Type="System.String" Scope="User">
       <Value Profile="(Default)">si</Value>
     </Setting>
   </Settings>

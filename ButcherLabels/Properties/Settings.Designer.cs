@@ -74,12 +74,12 @@ namespace ButcherLabels.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("si")]
-        public string Login {
+        public string Password {
             get {
-                return ((string)(this["Login"]));
+                return ((string)(this["Password"]));
             }
             set {
-                this["Login"] = value;
+                this["Password"] = value;
             }
         }
         
@@ -98,12 +98,12 @@ namespace ButcherLabels.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("si")]
-        public string LoginSI {
+        public string PasswordSI {
             get {
-                return ((string)(this["LoginSI"]));
+                return ((string)(this["PasswordSI"]));
             }
             set {
-                this["LoginSI"] = value;
+                this["PasswordSI"] = value;
             }
         }
     }

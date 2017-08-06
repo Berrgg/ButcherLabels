@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navButton2 = new DevExpress.XtraBars.Navigation.NavButton();
@@ -70,6 +70,10 @@
             this.layoutItem_Factory = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.lblPasswordSI = new DevExpress.XtraEditors.LabelControl();
+            this.txtPasswordSI = new DevExpress.XtraEditors.TextEdit();
             this.lblPassword = new DevExpress.XtraEditors.LabelControl();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
             this.lblUserSI = new DevExpress.XtraEditors.LabelControl();
@@ -83,10 +87,7 @@
             this.txtUserNameSI = new DevExpress.XtraEditors.TextEdit();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.txtServer = new DevExpress.XtraEditors.TextEdit();
-            this.lblPasswordSI = new DevExpress.XtraEditors.LabelControl();
-            this.txtPasswordSI = new DevExpress.XtraEditors.TextEdit();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
+            this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -123,13 +124,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Factory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).BeginInit();
             this.navigationPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabaseSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserNameSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -172,6 +174,7 @@
             this.navBtnSettings.Caption = "";
             this.navBtnSettings.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnSettings.Glyph")));
             this.navBtnSettings.Name = "navBtnSettings";
+            this.navBtnSettings.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navBtnSettings_ElementClick);
             // 
             // navBtnExit
             // 
@@ -179,6 +182,7 @@
             this.navBtnExit.Caption = "";
             this.navBtnExit.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnExit.Glyph")));
             this.navBtnExit.Name = "navBtnExit";
+            this.navBtnExit.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navBtnExit_ElementClick);
             // 
             // tileNavCatButcher
             // 
@@ -193,8 +197,8 @@
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Options.UseFont = true;
             this.tileNavCatButcher.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.Text = "Butcher\'s labels";
-            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement1);
+            tileItemElement2.Text = "Butcher\'s labels";
+            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement2);
             this.tileNavCatButcher.Tile.Name = "tileBarItem2";
             // 
             // navigationFrame1
@@ -239,10 +243,10 @@
             // 
             // gridControl_Batch
             // 
-            this.gridControl_Batch.Location = new System.Drawing.Point(12, 194);
+            this.gridControl_Batch.Location = new System.Drawing.Point(12, 193);
             this.gridControl_Batch.MainView = this.gridView_Batch;
             this.gridControl_Batch.Name = "gridControl_Batch";
-            this.gridControl_Batch.Size = new System.Drawing.Size(272, 344);
+            this.gridControl_Batch.Size = new System.Drawing.Size(272, 345);
             this.gridControl_Batch.TabIndex = 12;
             this.gridControl_Batch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Batch});
@@ -260,7 +264,7 @@
             this.textEdit_Barcode.Name = "textEdit_Barcode";
             this.textEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textEdit_Barcode.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_Barcode.Size = new System.Drawing.Size(749, 46);
+            this.textEdit_Barcode.Size = new System.Drawing.Size(472, 46);
             this.textEdit_Barcode.StyleController = this.layoutControl1;
             this.textEdit_Barcode.TabIndex = 11;
             // 
@@ -324,9 +328,9 @@
             // 
             this.simpleButton_PrintLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.simpleButton_PrintLabel.Appearance.Options.UseFont = true;
-            this.simpleButton_PrintLabel.Location = new System.Drawing.Point(315, 230);
+            this.simpleButton_PrintLabel.Location = new System.Drawing.Point(315, 227);
             this.simpleButton_PrintLabel.Name = "simpleButton_PrintLabel";
-            this.simpleButton_PrintLabel.Size = new System.Drawing.Size(406, 119);
+            this.simpleButton_PrintLabel.Size = new System.Drawing.Size(406, 111);
             this.simpleButton_PrintLabel.StyleController = this.layoutControl1;
             this.simpleButton_PrintLabel.TabIndex = 14;
             this.simpleButton_PrintLabel.Text = "PRINT LABEL";
@@ -340,7 +344,7 @@
             this.lookUpEdit_Factory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit_Factory.Properties.NullText = "";
-            this.lookUpEdit_Factory.Size = new System.Drawing.Size(226, 46);
+            this.lookUpEdit_Factory.Size = new System.Drawing.Size(187, 46);
             this.lookUpEdit_Factory.StyleController = this.layoutControl1;
             this.lookUpEdit_Factory.TabIndex = 8;
             // 
@@ -367,7 +371,8 @@
             this.emptySpaceItem6,
             this.layoutItem_Product,
             this.layoutItem_Factory,
-            this.emptySpaceItem11});
+            this.emptySpaceItem11,
+            this.emptySpaceItem12});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1049, 550);
@@ -390,7 +395,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 162);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1029, 20);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1029, 19);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutItem_Shift
@@ -432,7 +437,7 @@
             this.layoutItem_Barcode.Control = this.textEdit_Barcode;
             this.layoutItem_Barcode.Location = new System.Drawing.Point(276, 86);
             this.layoutItem_Barcode.Name = "layoutItem_Barcode";
-            this.layoutItem_Barcode.Size = new System.Drawing.Size(753, 76);
+            this.layoutItem_Barcode.Size = new System.Drawing.Size(476, 76);
             this.layoutItem_Barcode.Text = "Barcode:";
             this.layoutItem_Barcode.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Barcode.TextSize = new System.Drawing.Size(139, 23);
@@ -448,9 +453,9 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(721, 0);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(682, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(308, 76);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(347, 76);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem5
@@ -464,36 +469,36 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl_Batch;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 182);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 181);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(276, 348);
+            this.layoutControlItem1.Size = new System.Drawing.Size(276, 349);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(276, 182);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(276, 181);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(27, 348);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(27, 349);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(303, 341);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(303, 330);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(410, 189);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(410, 200);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutItem_PrintLabel
             // 
             this.layoutItem_PrintLabel.Control = this.simpleButton_PrintLabel;
-            this.layoutItem_PrintLabel.Location = new System.Drawing.Point(303, 218);
+            this.layoutItem_PrintLabel.Location = new System.Drawing.Point(303, 215);
             this.layoutItem_PrintLabel.MaxSize = new System.Drawing.Size(0, 124);
             this.layoutItem_PrintLabel.MinSize = new System.Drawing.Size(111, 46);
             this.layoutItem_PrintLabel.Name = "layoutItem_PrintLabel";
-            this.layoutItem_PrintLabel.Size = new System.Drawing.Size(410, 123);
+            this.layoutItem_PrintLabel.Size = new System.Drawing.Size(410, 115);
             this.layoutItem_PrintLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutItem_PrintLabel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutItem_PrintLabel.TextVisible = false;
@@ -501,17 +506,17 @@
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(713, 182);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(713, 181);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(316, 348);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(316, 349);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem10
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
-            this.emptySpaceItem10.Location = new System.Drawing.Point(303, 182);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(303, 181);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
-            this.emptySpaceItem10.Size = new System.Drawing.Size(410, 36);
+            this.emptySpaceItem10.Size = new System.Drawing.Size(410, 34);
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -542,7 +547,7 @@
             this.layoutItem_Factory.CustomizationFormText = "Factory:";
             this.layoutItem_Factory.Location = new System.Drawing.Point(491, 0);
             this.layoutItem_Factory.Name = "layoutItem_Factory";
-            this.layoutItem_Factory.Size = new System.Drawing.Size(230, 76);
+            this.layoutItem_Factory.Size = new System.Drawing.Size(191, 76);
             this.layoutItem_Factory.Text = "Factory:";
             this.layoutItem_Factory.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Factory.TextSize = new System.Drawing.Size(139, 23);
@@ -557,7 +562,7 @@
             // 
             // navigationPage2
             // 
-            this.navigationPage2.Controls.Add(this.btnExit);
+            this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
             this.navigationPage2.Controls.Add(this.lblPasswordSI);
             this.navigationPage2.Controls.Add(this.txtPasswordSI);
@@ -576,6 +581,47 @@
             this.navigationPage2.Controls.Add(this.txtServer);
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(1049, 550);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnClose.Appearance.Options.UseFont = true;
+            this.btnClose.Location = new System.Drawing.Point(567, 462);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(154, 41);
+            this.btnClose.TabIndex = 16;
+            this.btnClose.Text = "Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Location = new System.Drawing.Point(387, 462);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(154, 41);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // lblPasswordSI
+            // 
+            this.lblPasswordSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblPasswordSI.Appearance.Options.UseFont = true;
+            this.lblPasswordSI.Location = new System.Drawing.Point(237, 402);
+            this.lblPasswordSI.Name = "lblPasswordSI";
+            this.lblPasswordSI.Size = new System.Drawing.Size(109, 23);
+            this.lblPasswordSI.TabIndex = 14;
+            this.lblPasswordSI.Text = "Password SI:";
+            // 
+            // txtPasswordSI
+            // 
+            this.txtPasswordSI.Location = new System.Drawing.Point(387, 391);
+            this.txtPasswordSI.Name = "txtPasswordSI";
+            this.txtPasswordSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.txtPasswordSI.Properties.Appearance.Options.UseFont = true;
+            this.txtPasswordSI.Size = new System.Drawing.Size(334, 46);
+            this.txtPasswordSI.TabIndex = 13;
             // 
             // lblPassword
             // 
@@ -632,9 +678,9 @@
             this.lblDatabase.Appearance.Options.UseFont = true;
             this.lblDatabase.Location = new System.Drawing.Point(237, 142);
             this.lblDatabase.Name = "lblDatabase";
-            this.lblDatabase.Size = new System.Drawing.Size(85, 23);
+            this.lblDatabase.Size = new System.Drawing.Size(124, 23);
             this.lblDatabase.TabIndex = 7;
-            this.lblDatabase.Text = "Database:";
+            this.lblDatabase.Text = "App Database:";
             // 
             // lblServer
             // 
@@ -701,44 +747,13 @@
             this.txtServer.Size = new System.Drawing.Size(334, 46);
             this.txtServer.TabIndex = 0;
             // 
-            // lblPasswordSI
+            // emptySpaceItem12
             // 
-            this.lblPasswordSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPasswordSI.Appearance.Options.UseFont = true;
-            this.lblPasswordSI.Location = new System.Drawing.Point(237, 402);
-            this.lblPasswordSI.Name = "lblPasswordSI";
-            this.lblPasswordSI.Size = new System.Drawing.Size(109, 23);
-            this.lblPasswordSI.TabIndex = 14;
-            this.lblPasswordSI.Text = "Password SI:";
-            // 
-            // txtPasswordSI
-            // 
-            this.txtPasswordSI.Location = new System.Drawing.Point(387, 391);
-            this.txtPasswordSI.Name = "txtPasswordSI";
-            this.txtPasswordSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.txtPasswordSI.Properties.Appearance.Options.UseFont = true;
-            this.txtPasswordSI.Size = new System.Drawing.Size(334, 46);
-            this.txtPasswordSI.TabIndex = 13;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(387, 462);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(154, 41);
-            this.btnSave.TabIndex = 15;
-            this.btnSave.Text = "Save";
-            // 
-            // btnExit
-            // 
-            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.btnExit.Appearance.Options.UseFont = true;
-            this.btnExit.Location = new System.Drawing.Point(567, 462);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(154, 41);
-            this.btnExit.TabIndex = 16;
-            this.btnExit.Text = "Exit";
+            this.emptySpaceItem12.AllowHotTrack = false;
+            this.emptySpaceItem12.Location = new System.Drawing.Point(752, 86);
+            this.emptySpaceItem12.Name = "emptySpaceItem12";
+            this.emptySpaceItem12.Size = new System.Drawing.Size(277, 76);
+            this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
             // 
             // MainForm
             // 
@@ -789,13 +804,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).EndInit();
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabaseSI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserNameSI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -855,8 +871,9 @@
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.LabelControl lblPasswordSI;
         private DevExpress.XtraEditors.TextEdit txtPasswordSI;
-        private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.SimpleButton btnSave;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem12;
     }
 }
 
