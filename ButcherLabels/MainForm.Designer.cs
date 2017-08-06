@@ -85,6 +85,8 @@
             this.txtServer = new DevExpress.XtraEditors.TextEdit();
             this.lblPasswordSI = new DevExpress.XtraEditors.LabelControl();
             this.txtPasswordSI = new DevExpress.XtraEditors.TextEdit();
+            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.btnExit = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -555,6 +557,8 @@
             // 
             // navigationPage2
             // 
+            this.navigationPage2.Controls.Add(this.btnExit);
+            this.navigationPage2.Controls.Add(this.btnSave);
             this.navigationPage2.Controls.Add(this.lblPasswordSI);
             this.navigationPage2.Controls.Add(this.txtPasswordSI);
             this.navigationPage2.Controls.Add(this.lblPassword);
@@ -589,7 +593,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
-            this.txtPassword.Size = new System.Drawing.Size(279, 46);
+            this.txtPassword.Size = new System.Drawing.Size(334, 46);
             this.txtPassword.TabIndex = 11;
             // 
             // lblUserSI
@@ -658,7 +662,7 @@
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtDatabase.Properties.Appearance.Options.UseFont = true;
-            this.txtDatabase.Size = new System.Drawing.Size(279, 46);
+            this.txtDatabase.Size = new System.Drawing.Size(334, 46);
             this.txtDatabase.TabIndex = 4;
             // 
             // txtDatabaseSI
@@ -667,7 +671,7 @@
             this.txtDatabaseSI.Name = "txtDatabaseSI";
             this.txtDatabaseSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtDatabaseSI.Properties.Appearance.Options.UseFont = true;
-            this.txtDatabaseSI.Size = new System.Drawing.Size(279, 46);
+            this.txtDatabaseSI.Size = new System.Drawing.Size(334, 46);
             this.txtDatabaseSI.TabIndex = 3;
             // 
             // txtUserNameSI
@@ -676,7 +680,7 @@
             this.txtUserNameSI.Name = "txtUserNameSI";
             this.txtUserNameSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtUserNameSI.Properties.Appearance.Options.UseFont = true;
-            this.txtUserNameSI.Size = new System.Drawing.Size(279, 46);
+            this.txtUserNameSI.Size = new System.Drawing.Size(334, 46);
             this.txtUserNameSI.TabIndex = 2;
             // 
             // txtUserName
@@ -685,7 +689,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtUserName.Properties.Appearance.Options.UseFont = true;
-            this.txtUserName.Size = new System.Drawing.Size(279, 46);
+            this.txtUserName.Size = new System.Drawing.Size(334, 46);
             this.txtUserName.TabIndex = 1;
             // 
             // txtServer
@@ -694,7 +698,7 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtServer.Properties.Appearance.Options.UseFont = true;
-            this.txtServer.Size = new System.Drawing.Size(279, 46);
+            this.txtServer.Size = new System.Drawing.Size(334, 46);
             this.txtServer.TabIndex = 0;
             // 
             // lblPasswordSI
@@ -713,8 +717,28 @@
             this.txtPasswordSI.Name = "txtPasswordSI";
             this.txtPasswordSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtPasswordSI.Properties.Appearance.Options.UseFont = true;
-            this.txtPasswordSI.Size = new System.Drawing.Size(279, 46);
+            this.txtPasswordSI.Size = new System.Drawing.Size(334, 46);
             this.txtPasswordSI.TabIndex = 13;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnSave.Appearance.Options.UseFont = true;
+            this.btnSave.Location = new System.Drawing.Point(387, 462);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(154, 41);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "Save";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnExit.Appearance.Options.UseFont = true;
+            this.btnExit.Location = new System.Drawing.Point(567, 462);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(154, 41);
+            this.btnExit.TabIndex = 16;
+            this.btnExit.Text = "Exit";
             // 
             // MainForm
             // 
@@ -831,6 +855,8 @@
         private DevExpress.XtraEditors.TextEdit txtPassword;
         private DevExpress.XtraEditors.LabelControl lblPasswordSI;
         private DevExpress.XtraEditors.TextEdit txtPasswordSI;
+        private DevExpress.XtraEditors.SimpleButton btnExit;
+        private DevExpress.XtraEditors.SimpleButton btnSave;
     }
 }
 
