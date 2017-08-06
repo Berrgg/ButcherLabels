@@ -1,7 +1,27 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ButcherLabels.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ServerQNS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.3.1.7</Value>
+    </Setting>
+    <Setting Name="Database" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Production</Value>
+    </Setting>
+    <Setting Name="DatabaseSI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SI</Value>
+    </Setting>
+    <Setting Name="User" Type="System.String" Scope="User">
+      <Value Profile="(Default)">siuser</Value>
+    </Setting>
+    <Setting Name="Login" Type="System.String" Scope="User">
+      <Value Profile="(Default)">si</Value>
+    </Setting>
+    <Setting Name="UserSI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">siuser</Value>
+    </Setting>
+    <Setting Name="LoginSI" Type="System.String" Scope="User">
+      <Value Profile="(Default)">si</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
