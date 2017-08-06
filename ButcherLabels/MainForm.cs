@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using ButcherLabels.Classes.Database;
+using DevExpress.XtraEditors;
 
 namespace ButcherLabels
 {
@@ -26,12 +28,15 @@ namespace ButcherLabels
 
         private string SIConnectionString()
         {
-            string server = ("10.3.1.7");
-            string database = ("Production");
-            string user = ("siuser");
-            string passwd = ("si");
+            var settings = Properties.Settings.Default;
+            var connStr = new SqlConnectionString(settings.ServerQNS,settings.DatabaseSI,settings.UserSI,settings.PasswordSI);
+            return connStr.ConnString();
+        }
 
-            var connStr = new SqlConnectionString(server, database, user, passwd);
+        private string DbConnectionString()
+        {
+            var settings = Properties.Settings.Default;
+            var connStr = new SqlConnectionString(settings.ServerQNS, settings.Database, settings.User, settings.Password);
             return connStr.ConnString();
         }
 
@@ -39,10 +44,20 @@ namespace ButcherLabels
         {
             var sqlQuery = ("SELECT * FROM tblFactory");
             var sqlConn = new SqlConn(SIConnectionString());
-            var sqlDatatable = new SqlDataTable();
-            var dt = new DataTable();
-            dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
-        }
+
+            try
+            {
+                var sqlDatatable = new SqlDataTable();
+                var dt = new DataTable();
+                dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+            }
+            catch (SqlException sqlEx)
+            {
+                var message = string.Format("Unexpected error when tried to connect to server.\n Error: {0}", sqlEx.Message);
+                var title = "Database Connection";
+                XtraMessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+    }
 
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
