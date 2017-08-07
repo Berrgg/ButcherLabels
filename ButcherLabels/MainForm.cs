@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using ButcherLabels.Classes.Database;
 using DevExpress.XtraEditors;
+using DevExpress.XtraEditors.Controls;
 
 namespace ButcherLabels
 {
@@ -42,23 +43,55 @@ namespace ButcherLabels
 
         private void SetButchersLabels()
         {
-            var sqlQuery = ("SELECT * FROM tblFactory");
-            var sqlConn = new SqlConn(SIConnectionString());
+            var sqlConn = new SqlConn(DbConnectionString());
 
             try
             {
-                var sqlDatatable = new SqlDataTable();
-                var dt = new DataTable();
-                dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                if (sqlConn.TestConnection())
+                {
+                    var sqlDatatable = new SqlDataTable();
+                    var dt = new DataTable();
+
+                    var sqlQuery = "SELECT * FROM tblFactory";
+                    dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                    SetControlsLookUpEdit(lookUpEdit_Factory, dt, "FactoryName", "IdFactory", "Factory");
+
+                    sqlQuery = "SELECT * FROM tblCustomer";
+                    dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                    SetControlsLookUpEdit(lookUpEdit_Customer, dt, "CustomerName", "IdCustomer", "Customer");
+
+                    sqlQuery = "SELECT * FROM tblShift";
+                    dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                    SetControlsLookUpEdit(lookUpEdit_Shift, dt, "Shift", "IdShift", "Shift");
+                }
+                else
+                    throw new Exception("Unexpected error when tried to connect to server");
             }
-            catch (SqlException sqlEx)
+            catch (Exception Ex)
             {
-                var message = string.Format("Unexpected error when tried to connect to server.\n Error: {0}", sqlEx.Message);
+                var message = string.Format(Ex.Message);
                 var title = "Database Connection";
                 XtraMessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-    }
+        }
 
+        private void SetControlsLookUpEdit(LookUpEdit control, DataTable dataTable, string displayMember, string valueMember,
+                                            string caption)
+        {
+            var _control = control.Properties;
+            _control.DataSource = null;
+            _control.DataSource = dataTable;
+            _control.DisplayMember = displayMember;
+            _control.ValueMember = valueMember;
+            _control.AppearanceDropDown.FontSizeDelta = 12;
+            _control.AppearanceDropDownHeader.FontSizeDelta = 12;
+  
+            LookUpColumnInfoCollection column = _control.Columns;
+            column.Clear();
+            column.Add(new LookUpColumnInfo(displayMember, caption));
+        }
+
+        #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             navigationFrame1.SelectedPage = navigationPage2;
@@ -95,5 +128,7 @@ namespace ButcherLabels
             sett.PasswordSI = txtPasswordSI.Text;
             sett.Save();
         }
+
+        #endregion
     }
 }

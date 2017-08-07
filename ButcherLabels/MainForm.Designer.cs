@@ -40,6 +40,7 @@
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.lblColorLabel = new DevExpress.XtraEditors.LabelControl();
             this.gridControl_Batch = new DevExpress.XtraGrid.GridControl();
             this.gridView_Batch = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.textEdit_Barcode = new DevExpress.XtraEditors.TextEdit();
@@ -69,6 +70,9 @@
             this.layoutItem_Product = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutItem_Factory = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutItem_ColorLabel = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -87,10 +91,6 @@
             this.txtUserNameSI = new DevExpress.XtraEditors.TextEdit();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.txtServer = new DevExpress.XtraEditors.TextEdit();
-            this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.lblColorLabel = new DevExpress.XtraEditors.LabelControl();
-            this.layoutItem_ColorLabel = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -126,6 +126,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Product)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Factory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItem_ColorLabel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).BeginInit();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -134,9 +137,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserNameSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutItem_ColorLabel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -246,6 +246,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(1049, 550);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // lblColorLabel
+            // 
+            this.lblColorLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblColorLabel.Appearance.Options.UseFont = true;
+            this.lblColorLabel.Location = new System.Drawing.Point(12, 195);
+            this.lblColorLabel.Name = "lblColorLabel";
+            this.lblColorLabel.Size = new System.Drawing.Size(1025, 23);
+            this.lblColorLabel.StyleController = this.layoutControl1;
+            this.lblColorLabel.TabIndex = 15;
             // 
             // gridControl_Batch
             // 
@@ -568,8 +578,34 @@
             this.emptySpaceItem11.Size = new System.Drawing.Size(27, 76);
             this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // emptySpaceItem12
+            // 
+            this.emptySpaceItem12.AllowHotTrack = false;
+            this.emptySpaceItem12.Location = new System.Drawing.Point(813, 86);
+            this.emptySpaceItem12.Name = "emptySpaceItem12";
+            this.emptySpaceItem12.Size = new System.Drawing.Size(216, 76);
+            this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutItem_ColorLabel
+            // 
+            this.layoutItem_ColorLabel.Control = this.lblColorLabel;
+            this.layoutItem_ColorLabel.Location = new System.Drawing.Point(0, 183);
+            this.layoutItem_ColorLabel.Name = "layoutItem_ColorLabel";
+            this.layoutItem_ColorLabel.Size = new System.Drawing.Size(1029, 27);
+            this.layoutItem_ColorLabel.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutItem_ColorLabel.TextVisible = false;
+            // 
+            // emptySpaceItem13
+            // 
+            this.emptySpaceItem13.AllowHotTrack = false;
+            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 210);
+            this.emptySpaceItem13.Name = "emptySpaceItem13";
+            this.emptySpaceItem13.Size = new System.Drawing.Size(1029, 27);
+            this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // navigationPage2
             // 
+            this.navigationPage2.Caption = "navigationPage2";
             this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
             this.navigationPage2.Controls.Add(this.lblPasswordSI);
@@ -755,41 +791,6 @@
             this.txtServer.Size = new System.Drawing.Size(334, 46);
             this.txtServer.TabIndex = 0;
             // 
-            // emptySpaceItem12
-            // 
-            this.emptySpaceItem12.AllowHotTrack = false;
-            this.emptySpaceItem12.Location = new System.Drawing.Point(813, 86);
-            this.emptySpaceItem12.Name = "emptySpaceItem12";
-            this.emptySpaceItem12.Size = new System.Drawing.Size(216, 76);
-            this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // lblColorLabel
-            // 
-            this.lblColorLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblColorLabel.Appearance.Options.UseFont = true;
-            this.lblColorLabel.Location = new System.Drawing.Point(12, 195);
-            this.lblColorLabel.Name = "lblColorLabel";
-            this.lblColorLabel.Size = new System.Drawing.Size(1025, 23);
-            this.lblColorLabel.StyleController = this.layoutControl1;
-            this.lblColorLabel.TabIndex = 15;
-            // 
-            // layoutItem_ColorLabel
-            // 
-            this.layoutItem_ColorLabel.Control = this.lblColorLabel;
-            this.layoutItem_ColorLabel.Location = new System.Drawing.Point(0, 183);
-            this.layoutItem_ColorLabel.Name = "layoutItem_ColorLabel";
-            this.layoutItem_ColorLabel.Size = new System.Drawing.Size(1029, 27);
-            this.layoutItem_ColorLabel.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutItem_ColorLabel.TextVisible = false;
-            // 
-            // emptySpaceItem13
-            // 
-            this.emptySpaceItem13.AllowHotTrack = false;
-            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 210);
-            this.emptySpaceItem13.Name = "emptySpaceItem13";
-            this.emptySpaceItem13.Size = new System.Drawing.Size(1029, 27);
-            this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -837,6 +838,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Product)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Factory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutItem_ColorLabel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).EndInit();
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).EndInit();
@@ -846,9 +850,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtUserNameSI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutItem_ColorLabel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem13)).EndInit();
             this.ResumeLayout(false);
 
         }
