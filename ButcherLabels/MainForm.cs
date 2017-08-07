@@ -14,17 +14,6 @@ namespace ButcherLabels
         {
             InitializeComponent();
             SetButchersLabels();
-          //  ConnectionString();
-        }
-
-        private void ConnectionString()
-        {
-            var conn = new SqlConn(SIConnectionString());
-
-            if(conn.TestConnection())
-                Console.WriteLine("OK");
-            else
-                Console.WriteLine("Wrong");
         }
 
         private string SIConnectionString()
