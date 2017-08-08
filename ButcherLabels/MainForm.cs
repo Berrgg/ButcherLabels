@@ -59,7 +59,7 @@ namespace ButcherLabels
             catch (Exception Ex)
             {
                 var message = string.Format(Ex.Message);
-                var title = "Database Connection";
+                var title = "Database connection";
                 XtraMessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

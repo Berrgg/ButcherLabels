@@ -605,7 +605,6 @@
             // 
             // navigationPage2
             // 
-            this.navigationPage2.Caption = "navigationPage2";
             this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
             this.navigationPage2.Controls.Add(this.lblPasswordSI);
@@ -664,6 +663,7 @@
             this.txtPasswordSI.Name = "txtPasswordSI";
             this.txtPasswordSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtPasswordSI.Properties.Appearance.Options.UseFont = true;
+            this.txtPasswordSI.Properties.PasswordChar = '*';
             this.txtPasswordSI.Size = new System.Drawing.Size(334, 46);
             this.txtPasswordSI.TabIndex = 13;
             // 
@@ -683,6 +683,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
+            this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(334, 46);
             this.txtPassword.TabIndex = 11;
             // 
