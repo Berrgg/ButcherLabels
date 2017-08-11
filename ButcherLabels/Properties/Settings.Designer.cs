@@ -106,5 +106,17 @@ namespace ButcherLabels.Properties {
                 this["PasswordSI"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int Factory {
+            get {
+                return ((int)(this["Factory"]));
+            }
+            set {
+                this["Factory"] = value;
+            }
+        }
     }
 }

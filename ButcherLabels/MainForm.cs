@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using ButcherLabels.Classes.Database;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
@@ -40,10 +39,7 @@ namespace ButcherLabels
                 {
                     var sqlDatatable = new SqlDataTable();
                     var dt = new DataTable();
-
-                    var sqlQuery = "SELECT * FROM tblFactory";
-                    dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
-                    SetControlsLookUpEdit(lookUpEdit_Factory, dt, "FactoryName", "IdFactory", "Factory");
+                    var sqlQuery = string.Empty; 
 
                     sqlQuery = "SELECT * FROM tblCustomer";
                     dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
@@ -54,7 +50,7 @@ namespace ButcherLabels
                     SetControlsLookUpEdit(lookUpEdit_Shift, dt, "Shift", "IdShift", "Shift");
                 }
                 else
-                    throw new Exception("Unexpected error when tried to connect to server");
+                    throw new Exception("Unexpected error when tried to connect to server and download data.");
             }
             catch (Exception Ex)
             {
@@ -118,6 +114,22 @@ namespace ButcherLabels
             sett.Save();
         }
 
+        private void btnFactoryQNS_Click(object sender, EventArgs e)
+        {
+            var sett = Properties.Settings.Default;
+            sett.Factory = Convert.ToInt32(((SimpleButton)sender).Tag);
+            sett.Save();
+            navigationFrame1.SelectedPage = navigationPage1;
+        }
+
+        private void btnFactoryEK_Click(object sender, EventArgs e)
+        {
+            var sett = Properties.Settings.Default;
+            sett.Factory = Convert.ToInt32(((SimpleButton)sender).Tag);
+            sett.Save();
+            navigationFrame1.SelectedPage = navigationPage1;
+        }
         #endregion
+
     }
 }
