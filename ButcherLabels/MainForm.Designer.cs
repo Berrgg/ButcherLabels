@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
@@ -73,13 +73,12 @@
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.lblPasswordSI = new DevExpress.XtraEditors.LabelControl();
             this.txtPasswordSI = new DevExpress.XtraEditors.TextEdit();
             this.lblPassword = new DevExpress.XtraEditors.LabelControl();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.lblUserSI = new DevExpress.XtraEditors.LabelControl();
+            this.lblSI = new DevExpress.XtraEditors.LabelControl();
             this.lblUser = new DevExpress.XtraEditors.LabelControl();
-            this.lblDatabaseSI = new DevExpress.XtraEditors.LabelControl();
+            this.lblApp = new DevExpress.XtraEditors.LabelControl();
             this.lblDatabase = new DevExpress.XtraEditors.LabelControl();
             this.lblServer = new DevExpress.XtraEditors.LabelControl();
             this.lblSettings = new DevExpress.XtraEditors.LabelControl();
@@ -201,8 +200,8 @@
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Options.UseFont = true;
             this.tileNavCatButcher.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.Text = "Butcher\'s labels";
-            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement1);
+            tileItemElement2.Text = "Butcher\'s labels";
+            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement2);
             this.tileNavCatButcher.Tile.Name = "tileBarItem2";
             // 
             // navigationFrame1
@@ -569,16 +568,14 @@
             // 
             // navigationPage2
             // 
-            this.navigationPage2.Caption = "navigationPage2";
             this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
-            this.navigationPage2.Controls.Add(this.lblPasswordSI);
             this.navigationPage2.Controls.Add(this.txtPasswordSI);
             this.navigationPage2.Controls.Add(this.lblPassword);
             this.navigationPage2.Controls.Add(this.txtPassword);
-            this.navigationPage2.Controls.Add(this.lblUserSI);
+            this.navigationPage2.Controls.Add(this.lblSI);
             this.navigationPage2.Controls.Add(this.lblUser);
-            this.navigationPage2.Controls.Add(this.lblDatabaseSI);
+            this.navigationPage2.Controls.Add(this.lblApp);
             this.navigationPage2.Controls.Add(this.lblDatabase);
             this.navigationPage2.Controls.Add(this.lblServer);
             this.navigationPage2.Controls.Add(this.lblSettings);
@@ -612,19 +609,9 @@
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // lblPasswordSI
-            // 
-            this.lblPasswordSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblPasswordSI.Appearance.Options.UseFont = true;
-            this.lblPasswordSI.Location = new System.Drawing.Point(237, 402);
-            this.lblPasswordSI.Name = "lblPasswordSI";
-            this.lblPasswordSI.Size = new System.Drawing.Size(109, 23);
-            this.lblPasswordSI.TabIndex = 14;
-            this.lblPasswordSI.Text = "Password SI:";
-            // 
             // txtPasswordSI
             // 
-            this.txtPasswordSI.Location = new System.Drawing.Point(387, 391);
+            this.txtPasswordSI.Location = new System.Drawing.Point(574, 340);
             this.txtPasswordSI.Name = "txtPasswordSI";
             this.txtPasswordSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtPasswordSI.Properties.Appearance.Options.UseFont = true;
@@ -636,7 +623,7 @@
             // 
             this.lblPassword.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblPassword.Appearance.Options.UseFont = true;
-            this.lblPassword.Location = new System.Drawing.Point(238, 246);
+            this.lblPassword.Location = new System.Drawing.Point(55, 351);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Size = new System.Drawing.Size(85, 23);
             this.lblPassword.TabIndex = 12;
@@ -644,7 +631,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(387, 235);
+            this.txtPassword.Location = new System.Drawing.Point(201, 340);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtPassword.Properties.Appearance.Options.UseFont = true;
@@ -652,51 +639,51 @@
             this.txtPassword.Size = new System.Drawing.Size(334, 46);
             this.txtPassword.TabIndex = 11;
             // 
-            // lblUserSI
+            // lblSI
             // 
-            this.lblUserSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblUserSI.Appearance.Options.UseFont = true;
-            this.lblUserSI.Location = new System.Drawing.Point(237, 350);
-            this.lblUserSI.Name = "lblUserSI";
-            this.lblUserSI.Size = new System.Drawing.Size(123, 23);
-            this.lblUserSI.TabIndex = 10;
-            this.lblUserSI.Text = "User Name SI:";
+            this.lblSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblSI.Appearance.Options.UseFont = true;
+            this.lblSI.Location = new System.Drawing.Point(678, 195);
+            this.lblSI.Name = "lblSI";
+            this.lblSI.Size = new System.Drawing.Size(100, 23);
+            this.lblSI.TabIndex = 10;
+            this.lblSI.Text = "SI database";
             // 
             // lblUser
             // 
             this.lblUser.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblUser.Appearance.Options.UseFont = true;
-            this.lblUser.Location = new System.Drawing.Point(237, 194);
+            this.lblUser.Location = new System.Drawing.Point(54, 299);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(99, 23);
             this.lblUser.TabIndex = 9;
             this.lblUser.Text = "User Name:";
             // 
-            // lblDatabaseSI
+            // lblApp
             // 
-            this.lblDatabaseSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.lblDatabaseSI.Appearance.Options.UseFont = true;
-            this.lblDatabaseSI.Location = new System.Drawing.Point(237, 298);
-            this.lblDatabaseSI.Name = "lblDatabaseSI";
-            this.lblDatabaseSI.Size = new System.Drawing.Size(109, 23);
-            this.lblDatabaseSI.TabIndex = 8;
-            this.lblDatabaseSI.Text = "Database SI:";
+            this.lblApp.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.lblApp.Appearance.Options.UseFont = true;
+            this.lblApp.Location = new System.Drawing.Point(294, 195);
+            this.lblApp.Name = "lblApp";
+            this.lblApp.Size = new System.Drawing.Size(173, 23);
+            this.lblApp.TabIndex = 8;
+            this.lblApp.Text = "Application database";
             // 
             // lblDatabase
             // 
             this.lblDatabase.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblDatabase.Appearance.Options.UseFont = true;
-            this.lblDatabase.Location = new System.Drawing.Point(237, 142);
+            this.lblDatabase.Location = new System.Drawing.Point(54, 247);
             this.lblDatabase.Name = "lblDatabase";
-            this.lblDatabase.Size = new System.Drawing.Size(124, 23);
+            this.lblDatabase.Size = new System.Drawing.Size(85, 23);
             this.lblDatabase.TabIndex = 7;
-            this.lblDatabase.Text = "App Database:";
+            this.lblDatabase.Text = "Database:";
             // 
             // lblServer
             // 
             this.lblServer.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblServer.Appearance.Options.UseFont = true;
-            this.lblServer.Location = new System.Drawing.Point(237, 90);
+            this.lblServer.Location = new System.Drawing.Point(54, 121);
             this.lblServer.Name = "lblServer";
             this.lblServer.Size = new System.Drawing.Size(61, 23);
             this.lblServer.TabIndex = 6;
@@ -714,7 +701,7 @@
             // 
             // txtDatabase
             // 
-            this.txtDatabase.Location = new System.Drawing.Point(387, 131);
+            this.txtDatabase.Location = new System.Drawing.Point(201, 236);
             this.txtDatabase.Name = "txtDatabase";
             this.txtDatabase.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtDatabase.Properties.Appearance.Options.UseFont = true;
@@ -723,7 +710,7 @@
             // 
             // txtDatabaseSI
             // 
-            this.txtDatabaseSI.Location = new System.Drawing.Point(387, 287);
+            this.txtDatabaseSI.Location = new System.Drawing.Point(574, 236);
             this.txtDatabaseSI.Name = "txtDatabaseSI";
             this.txtDatabaseSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtDatabaseSI.Properties.Appearance.Options.UseFont = true;
@@ -732,7 +719,7 @@
             // 
             // txtUserNameSI
             // 
-            this.txtUserNameSI.Location = new System.Drawing.Point(387, 339);
+            this.txtUserNameSI.Location = new System.Drawing.Point(574, 288);
             this.txtUserNameSI.Name = "txtUserNameSI";
             this.txtUserNameSI.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtUserNameSI.Properties.Appearance.Options.UseFont = true;
@@ -741,7 +728,7 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(387, 183);
+            this.txtUserName.Location = new System.Drawing.Point(201, 288);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtUserName.Properties.Appearance.Options.UseFont = true;
@@ -750,7 +737,7 @@
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(387, 79);
+            this.txtServer.Location = new System.Drawing.Point(201, 110);
             this.txtServer.Name = "txtServer";
             this.txtServer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtServer.Properties.Appearance.Options.UseFont = true;
@@ -887,9 +874,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem8;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem10;
         private DevExpress.XtraBars.Navigation.NavigationPage navigationPage2;
-        private DevExpress.XtraEditors.LabelControl lblUserSI;
+        private DevExpress.XtraEditors.LabelControl lblSI;
         private DevExpress.XtraEditors.LabelControl lblUser;
-        private DevExpress.XtraEditors.LabelControl lblDatabaseSI;
+        private DevExpress.XtraEditors.LabelControl lblApp;
         private DevExpress.XtraEditors.LabelControl lblDatabase;
         private DevExpress.XtraEditors.LabelControl lblServer;
         private DevExpress.XtraEditors.LabelControl lblSettings;
@@ -900,7 +887,6 @@
         private DevExpress.XtraEditors.TextEdit txtServer;
         private DevExpress.XtraEditors.LabelControl lblPassword;
         private DevExpress.XtraEditors.TextEdit txtPassword;
-        private DevExpress.XtraEditors.LabelControl lblPasswordSI;
         private DevExpress.XtraEditors.TextEdit txtPasswordSI;
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.SimpleButton btnSave;
