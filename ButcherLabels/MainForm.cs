@@ -101,6 +101,11 @@ namespace ButcherLabels
             Application.Exit();
         }
 
+        private void navBtnHome_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            navigationFrame1.SelectedPage = navigationPage3;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             var sett = Properties.Settings.Default;
