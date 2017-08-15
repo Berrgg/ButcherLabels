@@ -76,6 +76,33 @@ namespace ButcherLabels
             column.Add(new LookUpColumnInfo(displayMember, caption));
         }
 
+        private void SetControlsLookUpEditProductList()
+        {
+            var sqlConn = new SqlConn(DbConnectionString());
+            var sett = Properties.Settings.Default;
+            int factoryId = sett.Factory;
+            string customerId = lookUpEdit_Customer.EditValue.ToString();
+            string sqlQuery = "SELECT * FROM v_ButcherLabelsProductList WHERE IdCustomer=" + customerId + " AND IdFactory="+factoryId+"";
+            var dt = new DataTable();
+            dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+
+            var control = lookUpEdit_Product.Properties;
+            control.DataSource = null;
+            control.DataSource = dt;
+            control.DisplayMember = "Description";
+            control.ValueMember = "ProdCode";
+            control.AppearanceDropDown.FontSizeDelta = 10;
+            control.AppearanceDropDownHeader.FontSizeDelta = 10;
+
+            LookUpColumnInfoCollection columns = control.Columns;
+            columns.Clear();
+            columns.Add(new LookUpColumnInfo("ProdCode", 150, "Code"));
+            columns.Add(new LookUpColumnInfo("Description", 400,"Description"));
+            columns.Add(new LookUpColumnInfo("CustomerName", 120, "Customer"));
+            columns.Add(new LookUpColumnInfo("LabelType", 100, "Label"));
+        }
+
+
         #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
@@ -133,6 +160,10 @@ namespace ButcherLabels
             sett.Factory = Convert.ToInt32(((SimpleButton)sender).Tag);
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
+        }
+        private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
+        {
+            SetControlsLookUpEditProductList();
         }
         #endregion
 
