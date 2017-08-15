@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using ButcherLabels.Classes.Database;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraEditors.DXErrorProvider;
 
 namespace ButcherLabels
 {
@@ -13,6 +14,7 @@ namespace ButcherLabels
         {
             InitializeComponent();
             SetButchersLabels();
+            SetControlValidation_ButcherLabels();
         }
 
         private string SIConnectionString()
@@ -102,6 +104,36 @@ namespace ButcherLabels
             columns.Add(new LookUpColumnInfo("LabelType", 100, "Label"));
         }
 
+        private ConditionValidationRule EmptyFieldValidationRule()
+        {
+            var validationRule = new ConditionValidationRule();
+            validationRule.ConditionOperator = ConditionOperator.IsNotBlank;
+            validationRule.ErrorText = "Field cannot be empty";
+            validationRule.ErrorType = ErrorType.Critical;
+
+            return validationRule;
+        }
+
+        private void SetControlValidation_ButcherLabels()
+        {
+            var emptyValidationRule = new ConditionValidationRule();
+            emptyValidationRule = EmptyFieldValidationRule();
+
+            dxValidationProvider1.SetValidationRule(dateEdit_ProdDate, emptyValidationRule);
+            dxValidationProvider1.SetValidationRule(lookUpEdit_Customer, emptyValidationRule);
+            dxValidationProvider1.SetValidationRule(lookUpEdit_Shift, emptyValidationRule);
+            dxValidationProvider1.SetValidationRule(lookUpEdit_Product, emptyValidationRule);
+            dxValidationProvider1.SetValidationRule(textEdit_Barcode, emptyValidationRule);
+        }
+
+        private void ValidateControlsButcherLabels()
+        {
+            dxValidationProvider1.Validate(dateEdit_ProdDate);
+            dxValidationProvider1.Validate(lookUpEdit_Customer);
+            dxValidationProvider1.Validate(lookUpEdit_Shift);
+            dxValidationProvider1.Validate(lookUpEdit_Product);
+            dxValidationProvider1.Validate(textEdit_Barcode);
+        }
 
         #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
@@ -161,17 +193,24 @@ namespace ButcherLabels
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
         }
+
         private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
         {
             SetControlsLookUpEditProductList();
         }
+
         private void lookUpEdit_Product_EditValueChanged(object sender, EventArgs e)
         {
             textEdit_Group.Text = lookUpEdit_Product.GetColumnValue("MachineName").ToString();
             string color = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
             lblColorLabel.Text = string.Format("Please ensure that the {0} labels are loaded in the printer.", color);
         }
-        #endregion
+
+        private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
+        {
+            ValidateControlsButcherLabels();
+        }
+       #endregion
 
     }
 }
