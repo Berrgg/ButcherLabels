@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TileItemElement tileItemElement5 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
@@ -205,8 +205,8 @@
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Options.UseFont = true;
             this.tileNavCatButcher.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement5.Text = "Butcher\'s labels";
-            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement5);
+            tileItemElement1.Text = "Butcher\'s labels";
+            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement1);
             this.tileNavCatButcher.Tile.Name = "tileBarItem2";
             // 
             // navigationFrame1
@@ -281,11 +281,11 @@
             // 
             // textEdit_Barcode
             // 
-            this.textEdit_Barcode.Location = new System.Drawing.Point(682, 124);
+            this.textEdit_Barcode.Location = new System.Drawing.Point(692, 124);
             this.textEdit_Barcode.Name = "textEdit_Barcode";
             this.textEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textEdit_Barcode.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_Barcode.Size = new System.Drawing.Size(345, 46);
+            this.textEdit_Barcode.Size = new System.Drawing.Size(335, 46);
             this.textEdit_Barcode.StyleController = this.layoutControl1;
             this.textEdit_Barcode.TabIndex = 11;
             // 
@@ -299,9 +299,10 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEdit_Product.Properties.NullText = "";
             this.lookUpEdit_Product.Properties.PopupWidth = 900;
-            this.lookUpEdit_Product.Size = new System.Drawing.Size(503, 46);
+            this.lookUpEdit_Product.Size = new System.Drawing.Size(475, 46);
             this.lookUpEdit_Product.StyleController = this.layoutControl1;
             this.lookUpEdit_Product.TabIndex = 9;
+            this.lookUpEdit_Product.EditValueChanged += new System.EventHandler(this.lookUpEdit_Product_EditValueChanged);
             // 
             // lookUpEdit_Customer
             // 
@@ -361,11 +362,11 @@
             // textEdit_Group
             // 
             this.textEdit_Group.Enabled = false;
-            this.textEdit_Group.Location = new System.Drawing.Point(529, 124);
+            this.textEdit_Group.Location = new System.Drawing.Point(501, 124);
             this.textEdit_Group.Name = "textEdit_Group";
             this.textEdit_Group.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textEdit_Group.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_Group.Size = new System.Drawing.Size(139, 46);
+            this.textEdit_Group.Size = new System.Drawing.Size(177, 46);
             this.textEdit_Group.StyleController = this.layoutControl1;
             this.textEdit_Group.TabIndex = 11;
             // 
@@ -458,9 +459,9 @@
             this.layoutItem_Barcode.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 14F);
             this.layoutItem_Barcode.AppearanceItemCaption.Options.UseFont = true;
             this.layoutItem_Barcode.Control = this.textEdit_Barcode;
-            this.layoutItem_Barcode.Location = new System.Drawing.Point(670, 86);
+            this.layoutItem_Barcode.Location = new System.Drawing.Point(680, 86);
             this.layoutItem_Barcode.Name = "layoutItem_Barcode";
-            this.layoutItem_Barcode.Size = new System.Drawing.Size(349, 76);
+            this.layoutItem_Barcode.Size = new System.Drawing.Size(339, 76);
             this.layoutItem_Barcode.Text = "Barcode:";
             this.layoutItem_Barcode.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Barcode.TextSize = new System.Drawing.Size(139, 23);
@@ -545,7 +546,7 @@
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(507, 86);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(479, 86);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(10, 76);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
@@ -557,7 +558,7 @@
             this.layoutItem_Product.Control = this.lookUpEdit_Product;
             this.layoutItem_Product.Location = new System.Drawing.Point(0, 86);
             this.layoutItem_Product.Name = "layoutItem_Product";
-            this.layoutItem_Product.Size = new System.Drawing.Size(507, 76);
+            this.layoutItem_Product.Size = new System.Drawing.Size(479, 76);
             this.layoutItem_Product.Text = "Product:";
             this.layoutItem_Product.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Product.TextSize = new System.Drawing.Size(139, 23);
@@ -585,9 +586,9 @@
             this.layoutItem_Group.AppearanceItemCaption.Options.UseFont = true;
             this.layoutItem_Group.Control = this.textEdit_Group;
             this.layoutItem_Group.CustomizationFormText = "Barcode:";
-            this.layoutItem_Group.Location = new System.Drawing.Point(517, 86);
+            this.layoutItem_Group.Location = new System.Drawing.Point(489, 86);
             this.layoutItem_Group.Name = "layoutItem_Group";
-            this.layoutItem_Group.Size = new System.Drawing.Size(143, 76);
+            this.layoutItem_Group.Size = new System.Drawing.Size(181, 76);
             this.layoutItem_Group.Text = "Group:";
             this.layoutItem_Group.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Group.TextSize = new System.Drawing.Size(139, 23);
@@ -595,7 +596,7 @@
             // emptySpaceItem12
             // 
             this.emptySpaceItem12.AllowHotTrack = false;
-            this.emptySpaceItem12.Location = new System.Drawing.Point(660, 86);
+            this.emptySpaceItem12.Location = new System.Drawing.Point(670, 86);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
             this.emptySpaceItem12.Size = new System.Drawing.Size(10, 76);
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);

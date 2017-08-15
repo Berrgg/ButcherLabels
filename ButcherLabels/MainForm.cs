@@ -165,6 +165,12 @@ namespace ButcherLabels
         {
             SetControlsLookUpEditProductList();
         }
+        private void lookUpEdit_Product_EditValueChanged(object sender, EventArgs e)
+        {
+            textEdit_Group.Text = lookUpEdit_Product.GetColumnValue("MachineName").ToString();
+            string color = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
+            lblColorLabel.Text = string.Format("Please ensure that the {0} labels are loaded in the printer.", color);
+        }
         #endregion
 
     }
