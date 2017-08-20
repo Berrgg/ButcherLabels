@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
             this.navBtnSettings = new DevExpress.XtraBars.Navigation.NavButton();
@@ -92,7 +93,7 @@
             this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnFactoryEK = new DevExpress.XtraEditors.SimpleButton();
             this.btnFactoryQNS = new DevExpress.XtraEditors.SimpleButton();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -145,7 +146,6 @@
             // 
             // tileNavPane1
             // 
-            this.tileNavPane1.ButtonPadding = new System.Windows.Forms.Padding(12);
             this.tileNavPane1.Buttons.Add(this.navBtnHome);
             this.tileNavPane1.Buttons.Add(this.navBtnSettings);
             this.tileNavPane1.Buttons.Add(this.navBtnExit);
@@ -155,7 +155,6 @@
             // tileNavCategory1
             // 
             this.tileNavPane1.DefaultCategory.Name = "tileNavCategory1";
-            this.tileNavPane1.DefaultCategory.OptionsDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.DefaultCategory.OwnerCollection = null;
             // 
             // 
@@ -164,15 +163,12 @@
             this.tileNavPane1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tileNavPane1.Location = new System.Drawing.Point(0, 0);
             this.tileNavPane1.Name = "tileNavPane1";
-            this.tileNavPane1.OptionsPrimaryDropDown.BackColor = System.Drawing.Color.Empty;
-            this.tileNavPane1.OptionsSecondaryDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavPane1.Size = new System.Drawing.Size(1049, 66);
             this.tileNavPane1.TabIndex = 0;
             this.tileNavPane1.Text = "tileNavPane1";
             // 
             // navBtnHome
             // 
-            this.navBtnHome.Caption = "";
             this.navBtnHome.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnHome.Glyph")));
             this.navBtnHome.IsMain = true;
             this.navBtnHome.Name = "navBtnHome";
@@ -181,7 +177,6 @@
             // navBtnSettings
             // 
             this.navBtnSettings.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Right;
-            this.navBtnSettings.Caption = "";
             this.navBtnSettings.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnSettings.Glyph")));
             this.navBtnSettings.Name = "navBtnSettings";
             this.navBtnSettings.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navBtnSettings_ElementClick);
@@ -189,7 +184,6 @@
             // navBtnExit
             // 
             this.navBtnExit.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Right;
-            this.navBtnExit.Caption = "";
             this.navBtnExit.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnExit.Glyph")));
             this.navBtnExit.Name = "navBtnExit";
             this.navBtnExit.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navBtnExit_ElementClick);
@@ -199,7 +193,6 @@
             this.tileNavCatButcher.Caption = "Butcher labels";
             this.tileNavCatButcher.Glyph = ((System.Drawing.Image)(resources.GetObject("tileNavCatButcher.Glyph")));
             this.tileNavCatButcher.Name = "tileNavCatButcher";
-            this.tileNavCatButcher.OptionsDropDown.BackColor = System.Drawing.Color.Empty;
             this.tileNavCatButcher.OwnerCollection = this.tileNavPane1.Categories;
             // 
             // 
@@ -269,17 +262,22 @@
             this.gridControl_Batch.Location = new System.Drawing.Point(12, 237);
             this.gridControl_Batch.MainView = this.gridView_Batch;
             this.gridControl_Batch.Name = "gridControl_Batch";
-            this.gridControl_Batch.Size = new System.Drawing.Size(493, 301);
+            this.gridControl_Batch.Size = new System.Drawing.Size(576, 301);
             this.gridControl_Batch.TabIndex = 12;
             this.gridControl_Batch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Batch});
             // 
             // gridView_Batch
             // 
+            this.gridView_Batch.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.gridView_Batch.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView_Batch.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.gridView_Batch.Appearance.Row.Options.UseFont = true;
             this.gridView_Batch.GridControl = this.gridControl_Batch;
             this.gridView_Batch.Name = "gridView_Batch";
             this.gridView_Batch.OptionsBehavior.Editable = false;
             this.gridView_Batch.OptionsView.ShowGroupPanel = false;
+            this.gridView_Batch.OptionsView.ShowIndicator = false;
             // 
             // textEdit_Barcode
             // 
@@ -354,9 +352,9 @@
             // 
             this.simpleButton_PrintLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.simpleButton_PrintLabel.Appearance.Options.UseFont = true;
-            this.simpleButton_PrintLabel.Location = new System.Drawing.Point(519, 264);
+            this.simpleButton_PrintLabel.Location = new System.Drawing.Point(627, 264);
             this.simpleButton_PrintLabel.Name = "simpleButton_PrintLabel";
-            this.simpleButton_PrintLabel.Size = new System.Drawing.Size(326, 69);
+            this.simpleButton_PrintLabel.Size = new System.Drawing.Size(374, 69);
             this.simpleButton_PrintLabel.StyleController = this.layoutControl1;
             this.simpleButton_PrintLabel.TabIndex = 14;
             this.simpleButton_PrintLabel.Text = "PRINT LABEL";
@@ -498,34 +496,34 @@
             this.layoutControlItem1.Control = this.gridControl_Batch;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 225);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(497, 305);
+            this.layoutControlItem1.Size = new System.Drawing.Size(580, 305);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(497, 225);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(580, 225);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(10, 305);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(35, 305);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(507, 325);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(615, 325);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(330, 205);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(378, 205);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutItem_PrintLabel
             // 
             this.layoutItem_PrintLabel.Control = this.simpleButton_PrintLabel;
-            this.layoutItem_PrintLabel.Location = new System.Drawing.Point(507, 252);
+            this.layoutItem_PrintLabel.Location = new System.Drawing.Point(615, 252);
             this.layoutItem_PrintLabel.MaxSize = new System.Drawing.Size(0, 124);
             this.layoutItem_PrintLabel.MinSize = new System.Drawing.Size(111, 46);
             this.layoutItem_PrintLabel.Name = "layoutItem_PrintLabel";
-            this.layoutItem_PrintLabel.Size = new System.Drawing.Size(330, 73);
+            this.layoutItem_PrintLabel.Size = new System.Drawing.Size(378, 73);
             this.layoutItem_PrintLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutItem_PrintLabel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutItem_PrintLabel.TextVisible = false;
@@ -533,17 +531,17 @@
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(837, 225);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(993, 225);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(192, 305);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(36, 305);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem10
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
-            this.emptySpaceItem10.Location = new System.Drawing.Point(507, 225);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(615, 225);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
-            this.emptySpaceItem10.Size = new System.Drawing.Size(330, 27);
+            this.emptySpaceItem10.Size = new System.Drawing.Size(378, 27);
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6

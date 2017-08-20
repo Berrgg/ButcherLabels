@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using ButcherLabels.Classes;
 using ButcherLabels.Classes.Database;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace ButcherLabels
 {
@@ -15,6 +17,8 @@ namespace ButcherLabels
             InitializeComponent();
             SetButchersLabels();
             SetControlValidation_ButcherLabels();
+            SetDataTableForGridViewBatch();
+            SetGridViewBatchControl();
         }
 
         private string SIConnectionString()
@@ -146,12 +150,14 @@ namespace ButcherLabels
                     var sqlDt = new SqlDataTable();
                     var sqlQuery = string.Empty;
                     var dt = new DataTable();
-
+                    
                     sqlQuery = "select inventorybatch.product, inventory.description, lot, batchno, palletid, udf1, udf2, udf3, " +
                                 "udf4, killdate, origqty " +
                                 "from inventorybatch join inventory on inventorybatch.product = inventory.product " +
                                 "where palletid = '111000083844'";
                     dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+
+                    AddDataToGridView(dt);
                 }
                 else
                     throw new Exception("Unexpected error when tried to connect to SI database and download data.");
@@ -161,6 +167,42 @@ namespace ButcherLabels
                 var message = string.Format(ex.Message);
                 var title = "SI database connection";
                 XtraMessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void SetDataTableForGridViewBatch()
+        {
+            DataTable dt = new DataTable("Batch");
+            dt.Columns.Add("Code",typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("KillDate", typeof(DateTime));
+            dt.Columns.Add("Weight", typeof(decimal));
+
+            gridControl_Batch.DataSource = dt;
+        }
+
+        private void SetGridViewBatchControl()
+        {
+            GridView gv = (GridView)(gridControl_Batch.MainView);
+            gv.Columns[0].Width = 50;
+            gv.Columns[1].Width = 120;
+            gv.Columns[3].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            gv.Columns[3].DisplayFormat.FormatString = "n2";
+        }
+
+        private void AddDataToGridView(DataTable dataTable)
+        {
+            DataTable gridDataTable = (DataTable)(gridControl_Batch.DataSource);
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                DataRow newRow = gridDataTable.NewRow();
+                newRow[0] = dr[0];
+                newRow[1] = dr[1];
+                newRow[2] = dr[9];
+                newRow[3] = dr[10];
+
+                gridDataTable.Rows.Add(newRow);
             }
         }
 
