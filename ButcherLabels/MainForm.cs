@@ -147,7 +147,7 @@ namespace ButcherLabels
                     var sqlQuery = string.Empty;
                     var dt = new DataTable();
 
-                    sqlQuery = "select inventory.description, lot, batchno, palletid, udf1, udf2, udf3, " +
+                    sqlQuery = "select inventorybatch.product, inventory.description, lot, batchno, palletid, udf1, udf2, udf3, " +
                                 "udf4, killdate, origqty " +
                                 "from inventorybatch join inventory on inventorybatch.product = inventory.product " +
                                 "where palletid = '111000083844'";
