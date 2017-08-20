@@ -135,6 +135,35 @@ namespace ButcherLabels
             dxValidationProvider1.Validate(textEdit_Barcode);
         }
 
+        private void GetDataFromSI()
+        {
+            var sqlConn = new SqlConn(SIConnectionString());
+
+            try
+            {
+                if (sqlConn.TestConnection())
+                {
+                    var sqlDt = new SqlDataTable();
+                    var sqlQuery = string.Empty;
+                    var dt = new DataTable();
+
+                    sqlQuery = "select inventory.description, lot, batchno, palletid, udf1, udf2, udf3, " +
+                                "udf4, killdate, origqty " +
+                                "from inventorybatch join inventory on inventorybatch.product = inventory.product " +
+                                "where palletid = '111000083844'";
+                    dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                }
+                else
+                    throw new Exception("Unexpected error when tried to connect to SI database and download data.");
+            }
+            catch (Exception ex)
+            {
+                var message = string.Format(ex.Message);
+                var title = "SI database connection";
+                XtraMessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
@@ -209,6 +238,12 @@ namespace ButcherLabels
         private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
         {
             ValidateControlsButcherLabels();
+
+            if(dxValidationProvider1.GetInvalidControls().Count <= 0)
+            {
+                GetDataFromSI();
+            }
+
         }
        #endregion
 
