@@ -206,6 +206,17 @@ namespace ButcherLabels
             }
         }
 
+        private void InsertLabelDataIntoDatabase()
+        {
+            var sqlConnection = new SqlConn(DbConnectionString());
+            var insert = new InsertCommand(sqlConnection.GetSqlConnection());
+            insert.ProdDescription = lookUpEdit_Product.Text;
+            insert.ProductionDate = (DateTime)(dateEdit_ProdDate.EditValue);
+            insert.Shift = lookUpEdit_Shift.Text;
+          //  insert.KillDate = (DateTime)(dateEdit_ProdDate.EditValue);
+            insert.ExecuteInsertLabel();
+        }
+
         #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
@@ -284,6 +295,7 @@ namespace ButcherLabels
             if(dxValidationProvider1.GetInvalidControls().Count <= 0)
             {
                 GetDataFromSI();
+                InsertLabelDataIntoDatabase();
             }
 
         }

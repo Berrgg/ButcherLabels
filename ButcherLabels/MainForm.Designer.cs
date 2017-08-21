@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
@@ -169,6 +169,7 @@
             // 
             // navBtnHome
             // 
+            this.navBtnHome.Caption = null;
             this.navBtnHome.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnHome.Glyph")));
             this.navBtnHome.IsMain = true;
             this.navBtnHome.Name = "navBtnHome";
@@ -177,6 +178,7 @@
             // navBtnSettings
             // 
             this.navBtnSettings.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Right;
+            this.navBtnSettings.Caption = null;
             this.navBtnSettings.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnSettings.Glyph")));
             this.navBtnSettings.Name = "navBtnSettings";
             this.navBtnSettings.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navBtnSettings_ElementClick);
@@ -184,6 +186,7 @@
             // navBtnExit
             // 
             this.navBtnExit.Alignment = DevExpress.XtraBars.Navigation.NavButtonAlignment.Right;
+            this.navBtnExit.Caption = null;
             this.navBtnExit.Glyph = ((System.Drawing.Image)(resources.GetObject("navBtnExit.Glyph")));
             this.navBtnExit.Name = "navBtnExit";
             this.navBtnExit.ElementClick += new DevExpress.XtraBars.Navigation.NavElementClickEventHandler(this.navBtnExit_ElementClick);
@@ -200,8 +203,8 @@
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Options.UseFont = true;
             this.tileNavCatButcher.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement2.Text = "Butcher\'s labels";
-            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement2);
+            tileItemElement1.Text = "Butcher\'s labels";
+            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement1);
             this.tileNavCatButcher.Tile.Name = "tileBarItem2";
             // 
             // navigationFrame1
