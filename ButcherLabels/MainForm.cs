@@ -213,7 +213,6 @@ namespace ButcherLabels
             insert.ProdDescription = lookUpEdit_Product.Text;
             insert.ProductionDate = (DateTime)(dateEdit_ProdDate.EditValue);
             insert.Shift = lookUpEdit_Shift.Text;
-          //  insert.KillDate = (DateTime)(dateEdit_ProdDate.EditValue);
             insert.ExecuteInsertLabel();
         }
 
@@ -266,6 +265,7 @@ namespace ButcherLabels
             sett.Factory = Convert.ToInt32(((SimpleButton)sender).Tag);
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
+            dateEdit_ProdDate.EditValue = DateTime.Today;
         }
 
         private void btnFactoryEK_Click(object sender, EventArgs e)
@@ -274,6 +274,7 @@ namespace ButcherLabels
             sett.Factory = Convert.ToInt32(((SimpleButton)sender).Tag);
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
+            dateEdit_ProdDate.EditValue = DateTime.Today;
         }
 
         private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
@@ -297,9 +298,8 @@ namespace ButcherLabels
                 GetDataFromSI();
                 InsertLabelDataIntoDatabase();
             }
-
         }
-       #endregion
+        #endregion
 
     }
 }
