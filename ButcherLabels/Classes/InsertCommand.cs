@@ -22,8 +22,8 @@ namespace ButcherLabels.Classes
         public Nullable<System.DateTime> KillDate { get; set; }
         public string Lot { get; set; }
         public int LabelBatchNumber { get; set; }
-        public double Weight { get; set; }
-        public int IdFactory { get; set; }
+        public decimal Weight { get; set; }
+        public int FactoryId { get; set; }
 
         public InsertCommand(SqlConnection connection)
         {
@@ -35,8 +35,8 @@ namespace ButcherLabels.Classes
             try
             {
                 _connection.Open();
-                string sqlQuery = "INSERT INTO dbo.tblButcherLabelsData(ProductionDate, ProdCode, ProdDescription, Customer, Shift, LabelDescription, RawMaterialDescription, BatchNumber, PalletID, Udf2, Udf3, Udf4, KillDate, Lot, LabelBatchNumber, Weight, IdFactory) " +
-                                    "VALUES(@ProductionDate, @ProdCode, @ProdDescription, @Customer, @Shift, @LabelDescription, @RawMaterialDescription, @BatchNumber, @PalletId, @Udf2, @Udf3, @Udf4, @Killdate, @Lot, @LabelBatchNumber, @Weight, @IdFactory)";
+                string sqlQuery = "INSERT INTO dbo.tblButcherLabelsData(ProductionDate, ProdCode, ProdDescription, Customer, Shift, LabelDescription, RawMaterialDescription, BatchNumber, PalletID, Udf2, Udf3, Udf4, KillDate, Lot, LabelBatchNumber, Weight, FactoryId) " +
+                                    "VALUES(@ProductionDate, @ProdCode, @ProdDescription, @Customer, @Shift, @LabelDescription, @RawMaterialDescription, @BatchNumber, @PalletId, @Udf2, @Udf3, @Udf4, @Killdate, @Lot, @LabelBatchNumber, @Weight, @FactoryId)";
 
                 SqlCommand cmd = new SqlCommand(sqlQuery, _connection);
                 cmd.Parameters.Add("@ProductionDate", SqlDbType.DateTime).Value = (object)ProductionDate ?? DBNull.Value;
@@ -55,7 +55,7 @@ namespace ButcherLabels.Classes
                 cmd.Parameters.Add("@Lot", SqlDbType.VarChar).Value = (object)Lot ?? DBNull.Value;
                 cmd.Parameters.Add("@LabelBatchNumber", SqlDbType.Int).Value = (object)LabelBatchNumber ?? 0;
                 cmd.Parameters.Add("@Weight", SqlDbType.Decimal).Value = (object)Weight ?? 0.00;
-                cmd.Parameters.Add("@IdFactory", SqlDbType.Int).Value = (object)IdFactory ?? DBNull.Value;
+                cmd.Parameters.Add("@FactoryId", SqlDbType.Int).Value = (object)FactoryId ?? DBNull.Value;
                 cmd.CommandType = CommandType.Text;
                 cmd.ExecuteNonQuery();
             }

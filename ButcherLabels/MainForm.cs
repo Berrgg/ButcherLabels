@@ -12,6 +12,8 @@ namespace ButcherLabels
 {
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
+        private DataTable _butcherLabelsTable;
+
         public MainForm()
         {
             InitializeComponent();
@@ -149,15 +151,14 @@ namespace ButcherLabels
                 {
                     var sqlDt = new SqlDataTable();
                     var sqlQuery = string.Empty;
-                    var dt = new DataTable();
                     
                     sqlQuery = "select inventorybatch.product, inventory.description, lot, batchno, palletid, udf1, udf2, udf3, " +
                                 "udf4, killdate, origqty " +
                                 "from inventorybatch join inventory on inventorybatch.product = inventory.product " +
                                 "where palletid = '111000083844'";
-                    dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                    _butcherLabelsTable = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
 
-                    AddDataToGridView(dt);
+                    AddDataToGridView(_butcherLabelsTable);
                 }
                 else
                     throw new Exception("Unexpected error when tried to connect to SI database and download data.");
@@ -208,11 +209,28 @@ namespace ButcherLabels
 
         private void InsertLabelDataIntoDatabase()
         {
+            DataTable dt = _butcherLabelsTable;
             var sqlConnection = new SqlConn(DbConnectionString());
             var insert = new InsertCommand(sqlConnection.GetSqlConnection());
-            insert.ProdDescription = lookUpEdit_Product.Text;
+
             insert.ProductionDate = (DateTime)(dateEdit_ProdDate.EditValue);
+            insert.ProdCode = lookUpEdit_Product.GetColumnValue("ProdCode").ToString();
+            insert.ProdDescription = lookUpEdit_Product.Text;
+            insert.Customer = lookUpEdit_Customer.Text;
             insert.Shift = lookUpEdit_Shift.Text;
+            insert.LabelDescription = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
+            insert.RawMaterialDescription = dt.Rows[dt.Rows.Count-1]["description"].ToString();
+            insert.BatchNumber = dt.Rows[dt.Rows.Count - 1]["batchno"].ToString();
+            insert.PalletId = dt.Rows[dt.Rows.Count - 1]["palletid"].ToString();
+            insert.Udf2 = dt.Rows[dt.Rows.Count - 1]["udf2"].ToString();
+            insert.Udf3 = dt.Rows[dt.Rows.Count - 1]["udf3"].ToString();
+            insert.Udf4 = dt.Rows[dt.Rows.Count - 1]["udf4"].ToString();
+            insert.KillDate = (DateTime)(dt.Rows[dt.Rows.Count - 1]["killdate"]);
+            insert.Lot = dt.Rows[dt.Rows.Count - 1]["lot"].ToString();
+            insert.LabelBatchNumber = dt.Rows.Count;
+            insert.Weight = (decimal)(dt.Rows[dt.Rows.Count - 1]["origqty"]);
+            insert.FactoryId = Properties.Settings.Default.Factory;
+
             insert.ExecuteInsertLabel();
         }
 
