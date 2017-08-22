@@ -314,11 +314,16 @@ namespace ButcherLabels
 
             if(dxValidationProvider1.GetInvalidControls().Count <= 0)
             {
-                GetDataFromSI();
                 InsertLabelDataIntoDatabase();
             }
         }
-        #endregion
+
+         private void textEdit_Barcode_KeyDown(object sender, KeyEventArgs e)
+        {
+                GetDataFromSI();
+
+        }
+       #endregion
 
     }
 }

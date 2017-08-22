@@ -226,6 +226,7 @@
             // 
             // navigationPage1
             // 
+            this.navigationPage1.Caption = "navigationPage1";
             this.navigationPage1.Controls.Add(this.layoutControl1);
             this.navigationPage1.Name = "navigationPage1";
             this.navigationPage1.Size = new System.Drawing.Size(1049, 550);
@@ -290,6 +291,7 @@
             this.textEdit_Barcode.Size = new System.Drawing.Size(335, 46);
             this.textEdit_Barcode.StyleController = this.layoutControl1;
             this.textEdit_Barcode.TabIndex = 11;
+            this.textEdit_Barcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit_Barcode_KeyDown);
             // 
             // lookUpEdit_Product
             // 
@@ -793,7 +795,6 @@
             // 
             // navigationPage3
             // 
-            this.navigationPage3.Caption = "navigationPage3";
             this.navigationPage3.Controls.Add(this.btnFactoryEK);
             this.navigationPage3.Controls.Add(this.btnFactoryQNS);
             this.navigationPage3.Name = "navigationPage3";
