@@ -69,6 +69,7 @@
     <Compile Include="Classes\Database\SqlConnectionString.cs" />
     <Compile Include="Classes\Database\SqlDataTable.cs" />
     <Compile Include="Classes\InsertCommand.cs" />
+    <Compile Include="Classes\SqlQueryBatchPallet.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>

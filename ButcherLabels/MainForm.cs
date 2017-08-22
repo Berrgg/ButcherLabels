@@ -141,7 +141,7 @@ namespace ButcherLabels
             dxValidationProvider1.Validate(textEdit_Barcode);
         }
 
-        private void GetDataFromSI()
+        private void GetDataFromSI(string barCode)
         {
             var sqlConn = new SqlConn(SIConnectionString());
 
@@ -151,13 +151,25 @@ namespace ButcherLabels
                 {
                     var sqlDt = new SqlDataTable();
                     var sqlQuery = string.Empty;
-                    
-                    sqlQuery = "select inventorybatch.product, inventory.description, lot, batchno, palletid, udf1, udf2, udf3, " +
-                                "udf4, killdate, origqty " +
-                                "from inventorybatch join inventory on inventorybatch.product = inventory.product " +
-                                "where palletid = '111000083844'";
-                    _butcherLabelsTable = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                    string batchPallet = string.Empty;
 
+                    switch (barCode.Length)
+                    {
+                        case 14:
+                            batchPallet = barCode.Substring(2);
+                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(SqlQueryBatchPallet.PalletBatchField.palletid, batchPallet);
+                            break;
+                        case 22:
+                            batchPallet = barCode.Substring(0, 12);
+                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(SqlQueryBatchPallet.PalletBatchField.batchno, batchPallet);
+                            break;  
+                        default:
+                            batchPallet = barCode;
+                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(SqlQueryBatchPallet.PalletBatchField.batchno, batchPallet);
+                            break;
+                    }
+
+                    _butcherLabelsTable = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
                     AddDataToGridView(_butcherLabelsTable);
                 }
                 else
@@ -200,8 +212,8 @@ namespace ButcherLabels
                 DataRow newRow = gridDataTable.NewRow();
                 newRow[0] = dr[0];
                 newRow[1] = dr[1];
-                newRow[2] = dr[9];
-                newRow[3] = dr[10];
+                newRow[2] = dr[8];
+                newRow[3] = dr[9];
 
                 gridDataTable.Rows.Add(newRow);
             }
@@ -320,8 +332,10 @@ namespace ButcherLabels
 
          private void textEdit_Barcode_KeyDown(object sender, KeyEventArgs e)
         {
-                GetDataFromSI();
-
+            if (e.KeyCode == Keys.Enter)
+            {
+                GetDataFromSI(textEdit_Barcode.Text);
+            }
         }
        #endregion
 
