@@ -212,6 +212,7 @@ namespace ButcherLabels
             DataTable dt = _butcherLabelsTable;
             var sqlConnection = new SqlConn(DbConnectionString());
             var insert = new InsertCommand(sqlConnection.GetSqlConnection());
+            DataRow dr = dt.Rows[dt.Rows.Count - 1];
 
             insert.ProductionDate = (DateTime)(dateEdit_ProdDate.EditValue);
             insert.ProdCode = lookUpEdit_Product.GetColumnValue("ProdCode").ToString();
@@ -219,16 +220,16 @@ namespace ButcherLabels
             insert.Customer = lookUpEdit_Customer.Text;
             insert.Shift = lookUpEdit_Shift.Text;
             insert.LabelDescription = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
-            insert.RawMaterialDescription = dt.Rows[dt.Rows.Count-1]["description"].ToString();
-            insert.BatchNumber = dt.Rows[dt.Rows.Count - 1]["batchno"].ToString();
-            insert.PalletId = dt.Rows[dt.Rows.Count - 1]["palletid"].ToString();
-            insert.Udf2 = dt.Rows[dt.Rows.Count - 1]["udf2"].ToString();
-            insert.Udf3 = dt.Rows[dt.Rows.Count - 1]["udf3"].ToString();
-            insert.Udf4 = dt.Rows[dt.Rows.Count - 1]["udf4"].ToString();
-            insert.KillDate = (DateTime)(dt.Rows[dt.Rows.Count - 1]["killdate"]);
-            insert.Lot = dt.Rows[dt.Rows.Count - 1]["lot"].ToString();
+            insert.RawMaterialDescription = dr["description"].ToString();
+            insert.BatchNumber = dr["batchno"].ToString();
+            insert.PalletId = dr["palletid"].ToString();
+            insert.Udf2 = dr["udf2"].ToString();
+            insert.Udf3 = dr["udf3"].ToString();
+            insert.Udf4 = dr["udf4"].ToString();
+            insert.KillDate = (DateTime)(dr["killdate"]);
+            insert.Lot = dr["lot"].ToString();
             insert.LabelBatchNumber = dt.Rows.Count;
-            insert.Weight = (decimal)(dt.Rows[dt.Rows.Count - 1]["origqty"]);
+            insert.Weight = (decimal)(dr["origqty"]);
             insert.FactoryId = Properties.Settings.Default.Factory;
 
             insert.ExecuteInsertLabel();
