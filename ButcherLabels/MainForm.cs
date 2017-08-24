@@ -10,9 +10,10 @@ using DevExpress.XtraGrid.Views.Grid;
 
 namespace ButcherLabels
 {
-    public partial class MainForm : DevExpress.XtraEditors.XtraForm
+    public partial class MainForm : XtraForm
     {
         private DataTable _butcherLabelsTable;
+        private SqlQueryBatchPallet.PalletBatchField _batchOrPallet { get; set; }
 
         public MainForm()
         {
@@ -157,15 +158,18 @@ namespace ButcherLabels
                     {
                         case 14:
                             batchPallet = barCode.Substring(2);
-                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(SqlQueryBatchPallet.PalletBatchField.palletid, batchPallet);
+                            _batchOrPallet = SqlQueryBatchPallet.PalletBatchField.palletid;
+                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(_batchOrPallet, batchPallet);
                             break;
                         case 22:
                             batchPallet = barCode.Substring(0, 12);
-                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(SqlQueryBatchPallet.PalletBatchField.batchno, batchPallet);
+                            _batchOrPallet = SqlQueryBatchPallet.PalletBatchField.batchno;
+                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(_batchOrPallet, batchPallet);
                             break;  
                         default:
                             batchPallet = barCode;
-                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(SqlQueryBatchPallet.PalletBatchField.batchno, batchPallet);
+                            _batchOrPallet = SqlQueryBatchPallet.PalletBatchField.batchno;
+                            sqlQuery = SqlQueryBatchPallet.SelectPalletBatch(_batchOrPallet, batchPallet);
                             break;
                     }
 
@@ -233,15 +237,26 @@ namespace ButcherLabels
             insert.Shift = lookUpEdit_Shift.Text;
             insert.LabelDescription = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
             insert.RawMaterialDescription = dr["description"].ToString();
-            insert.BatchNumber = dr["batchno"].ToString();
-            insert.PalletId = dr["palletid"].ToString();
+
+            switch (_batchOrPallet)
+            {
+                case SqlQueryBatchPallet.PalletBatchField.palletid:
+                    insert.PalletId = dr["palletid"].ToString();
+                    break;
+                case SqlQueryBatchPallet.PalletBatchField.batchno:
+                    insert.BatchNumber = dr["batchno"].ToString();
+                    break;
+                default:
+                    break;
+            }
+
             insert.Udf2 = dr["udf2"].ToString();
             insert.Udf3 = dr["udf3"].ToString();
             insert.Udf4 = dr["udf4"].ToString();
             insert.KillDate = (DateTime)(dr["killdate"]);
             insert.Lot = dr["lot"].ToString();
             insert.LabelBatchNumber = dt.Rows.Count;
-            insert.Weight = (decimal)(dr["origqty"]);
+            insert.Weight = (decimal)(dr["Weight"]);
             insert.FactoryId = Properties.Settings.Default.Factory;
 
             insert.ExecuteInsertLabel();

@@ -15,10 +15,10 @@ namespace ButcherLabels.Classes
             string select2 = field.ToString();
             string select3 = ", udf1, udf2, udf3, udf4, killdate, sum(origqty) as Weight ";
             string from = "FROM inventorybatch join inventory on inventorybatch.product = inventory.product ";
-            string where = "WHERE palletid = ";
+            string where = "WHERE "+ field.ToString() + " = ";
             string param1 = "'" + palletId + "'";
             string groupBy = "Group by inventorybatch.product, inventory.description, lot, ";
-            string groupByParam = "palletid";
+            string groupByParam = field.ToString();
             string groupBy2 = ", udf1, udf2, udf3, udf4, killdate";
             return string.Concat(select1, select2, select3, from, where, param1, groupBy, groupByParam, groupBy2);
         }

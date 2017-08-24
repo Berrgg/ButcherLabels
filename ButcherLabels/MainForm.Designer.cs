@@ -795,6 +795,7 @@
             // 
             // navigationPage3
             // 
+            this.navigationPage3.Caption = "navigationPage3";
             this.navigationPage3.Controls.Add(this.btnFactoryEK);
             this.navigationPage3.Controls.Add(this.btnFactoryQNS);
             this.navigationPage3.Name = "navigationPage3";
