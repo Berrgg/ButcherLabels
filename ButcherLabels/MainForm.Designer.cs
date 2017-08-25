@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
@@ -262,6 +263,9 @@
             // 
             // gridControl_Batch
             // 
+            gridLevelNode1.RelationName = "Level1";
+            this.gridControl_Batch.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gridControl_Batch.Location = new System.Drawing.Point(12, 237);
             this.gridControl_Batch.MainView = this.gridView_Batch;
             this.gridControl_Batch.Name = "gridControl_Batch";
