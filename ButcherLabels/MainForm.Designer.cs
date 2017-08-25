@@ -285,6 +285,7 @@
             this.gridView_Batch.OptionsBehavior.Editable = false;
             this.gridView_Batch.OptionsView.ShowGroupPanel = false;
             this.gridView_Batch.OptionsView.ShowIndicator = false;
+            this.gridView_Batch.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gridView_Batch_RowStyle);
             // 
             // textEdit_Barcode
             // 

@@ -205,6 +205,12 @@ namespace ButcherLabels
             gv.Columns[1].Width = 120;
             gv.Columns[3].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gv.Columns[3].DisplayFormat.FormatString = "n2";
+
+            gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+            gv.OptionsSelection.EnableAppearanceFocusedRow = false;
+            gv.OptionsSelection.EnableAppearanceHideSelection = false;
+
+            gv.OptionsCustomization.AllowSort = false;
         }
 
         private void AddDataToGridView(DataTable dataTable)
@@ -350,9 +356,29 @@ namespace ButcherLabels
             if (e.KeyCode == Keys.Enter)
             {
                 GetDataFromSI(textEdit_Barcode.Text);
+                textEdit_Barcode.EditValue = null;
             }
         }
-       #endregion
+
+        private void gridView_Batch_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            GridView view = sender as GridView;
+            //  view.MoveLast();
+            //if (e.RowHandle >= 0)
+            //{
+            //    string category = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Code"]);
+            //    if (category == "IN86")
+            //    {
+            //        e.Appearance.BackColor = System.Drawing.Color.DarkViolet;
+            //   }
+            //}
+            if (e.RowHandle == view.RowCount - 1)
+            {
+                e.Appearance.BackColor = System.Drawing.Color.YellowGreen;
+                view.UnselectRow(e.RowHandle);
+            }
+      }
+        #endregion
 
     }
 }
