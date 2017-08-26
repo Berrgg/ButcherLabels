@@ -57,6 +57,8 @@ namespace ButcherLabels
                     sqlQuery = "SELECT * FROM tblShift";
                     dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
                     SetControlsLookUpEdit(lookUpEdit_Shift, dt, "Shift", "IdShift", "Shift");
+
+                    lookUpEdit_Product.Enabled = false;
                 }
                 else
                     throw new Exception("Unexpected error when tried to connect to server and download data.");
@@ -95,6 +97,9 @@ namespace ButcherLabels
             var dt = new DataTable();
             dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
 
+            lookUpEdit_Product.Enabled = true;
+            lblColorLabel.Text = string.Empty;
+
             var control = lookUpEdit_Product.Properties;
             control.DataSource = null;
             control.DataSource = dt;
@@ -130,7 +135,7 @@ namespace ButcherLabels
             dxValidationProvider1.SetValidationRule(lookUpEdit_Customer, emptyValidationRule);
             dxValidationProvider1.SetValidationRule(lookUpEdit_Shift, emptyValidationRule);
             dxValidationProvider1.SetValidationRule(lookUpEdit_Product, emptyValidationRule);
-            dxValidationProvider1.SetValidationRule(textEdit_Barcode, emptyValidationRule);
+          //  dxValidationProvider1.SetValidationRule(textEdit_Barcode, emptyValidationRule);
         }
 
         private void ValidateControlsButcherLabels()
