@@ -194,6 +194,7 @@ namespace ButcherLabels
             dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("KillDate", typeof(DateTime));
             dt.Columns.Add("Weight", typeof(decimal));
+            dt.Columns.Add("Batch", typeof(string));
 
             gridControl_Batch.DataSource = dt;
         }
@@ -202,7 +203,7 @@ namespace ButcherLabels
         {
             GridView gv = (GridView)(gridControl_Batch.MainView);
             gv.Columns[0].Width = 50;
-            gv.Columns[1].Width = 120;
+            gv.Columns[1].Width = 200;
             gv.Columns[3].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             gv.Columns[3].DisplayFormat.FormatString = "n2";
 
@@ -363,19 +364,13 @@ namespace ButcherLabels
         private void gridView_Batch_RowStyle(object sender, RowStyleEventArgs e)
         {
             GridView view = sender as GridView;
-            //  view.MoveLast();
-            //if (e.RowHandle >= 0)
-            //{
-            //    string category = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Code"]);
-            //    if (category == "IN86")
-            //    {
-            //        e.Appearance.BackColor = System.Drawing.Color.DarkViolet;
-            //   }
-            //}
-            if (e.RowHandle == view.RowCount - 1)
+            if (e.RowHandle >= 0)
             {
-                e.Appearance.BackColor = System.Drawing.Color.YellowGreen;
-                view.UnselectRow(e.RowHandle);
+                string category = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Batch"]);
+                if (category == string.Empty)
+                {
+                    e.Appearance.BackColor = System.Drawing.Color.Yellow;
+                }
             }
       }
         #endregion
