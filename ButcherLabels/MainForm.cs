@@ -238,6 +238,7 @@ namespace ButcherLabels
         private void InsertLabelDataIntoDatabase()
         {
             DataTable dt = _butcherLabelsTable;
+            DataTable gridControlDataTable = (DataTable)(gridControl_Batch.DataSource);
             var sqlConnection = new SqlConn(DbConnectionString());
             var insert = new InsertCommand(sqlConnection.GetSqlConnection());
             DataRow dr = dt.Rows[dt.Rows.Count - 1];
@@ -266,9 +267,9 @@ namespace ButcherLabels
             insert.Udf2 = dr["udf2"].ToString();
             insert.Udf3 = dr["udf3"].ToString();
             insert.Udf4 = dr["udf4"].ToString();
-            insert.KillDate = (DateTime)(dr["killdate"]);
+            insert.KillDate = (DateTime)(dr["killdate"]);   
             insert.Lot = dr["lot"].ToString();
-            insert.LabelBatchNumber = dt.Rows.Count;
+            insert.LabelBatchNumber = Functions.MaxNumber(gridControlDataTable, "Batch")+1;
             insert.Weight = (decimal)(dr["Weight"]);
             insert.FactoryId = Properties.Settings.Default.Factory;
 
