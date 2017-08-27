@@ -235,10 +235,9 @@ namespace ButcherLabels
             }
         }
 
-        private void InsertLabelDataIntoDatabase()
+        private void InsertLabelDataIntoDatabase(int BatchNumber)
         {
             DataTable dt = _butcherLabelsTable;
-            DataTable gridControlDataTable = (DataTable)(gridControl_Batch.DataSource);
             var sqlConnection = new SqlConn(DbConnectionString());
             var insert = new InsertCommand(sqlConnection.GetSqlConnection());
             DataRow dr = dt.Rows[dt.Rows.Count - 1];
@@ -269,7 +268,7 @@ namespace ButcherLabels
             insert.Udf4 = dr["udf4"].ToString();
             insert.KillDate = (DateTime)(dr["killdate"]);   
             insert.Lot = dr["lot"].ToString();
-            insert.LabelBatchNumber = Functions.MaxNumber(gridControlDataTable, "Batch")+1;
+            insert.LabelBatchNumber = BatchNumber;
             insert.Weight = (decimal)(dr["Weight"]);
             insert.FactoryId = Properties.Settings.Default.Factory;
 
@@ -296,6 +295,15 @@ namespace ButcherLabels
             catch (Exception ex)
             {
                 XtraMessageBox.Show(ex.Message, "Download data from database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void AddLabelBatchNumberToGridView(DataTable GridViewDataTable, int BatchNumber, string ColumnName)
+        {
+            foreach (DataRow dr in GridViewDataTable.Rows)
+            {
+                if (dr.IsNull(ColumnName))
+                    dr[ColumnName] = BatchNumber;
             }
         }
 
@@ -379,7 +387,11 @@ namespace ButcherLabels
 
             if(dxValidationProvider1.GetInvalidControls().Count <= 0)
             {
-                InsertLabelDataIntoDatabase();
+                DataTable gridControlDataTable = (DataTable)(gridControl_Batch.DataSource);
+                int batchNumber = Functions.MaxNumber(gridControlDataTable, "Batch") + 1;
+
+                AddLabelBatchNumberToGridView(gridControlDataTable, batchNumber, "Batch");
+                InsertLabelDataIntoDatabase(batchNumber);
             }
         }
 
