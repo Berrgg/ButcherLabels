@@ -150,12 +150,12 @@ namespace ButcherLabels
         private void GetDataFromSI(string barCode)
         {
             var sqlConn = new SqlConn(SIConnectionString());
+            DataTable dt = new DataTable();
 
             try
             {
                 if (sqlConn.TestConnection())
                 {
-                 //   var sqlDt = new SqlDataTable();
                     var sqlQuery = string.Empty;
                     string batchPallet = string.Empty;
 
@@ -178,8 +178,17 @@ namespace ButcherLabels
                             break;
                     }
 
-                    _butcherLabelsTable = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
-                    AddDataToGridView(_butcherLabelsTable);
+                    if(_butcherLabelsTable != null)
+                    {
+                        dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                        _butcherLabelsTable.Merge(dt);
+                    }
+                    else
+                    {
+                        dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                        _butcherLabelsTable = dt;
+                    }
+                    AddDataToGridView(dt);
                 }
                 else
                     throw new Exception("Unexpected error when tried to connect to SI database and download data.");
