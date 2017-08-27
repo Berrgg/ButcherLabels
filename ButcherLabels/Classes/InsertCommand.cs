@@ -13,6 +13,7 @@ namespace ButcherLabels.Classes
         public string Customer { get; set; }
         public string Shift { get; set; }
         public string LabelDescription { get; set; }
+        public string RawMaterialCode { get; set; }
         public string RawMaterialDescription { get; set; }
         public string BatchNumber { get; set; }
         public string PalletId { get; set; }
@@ -35,8 +36,8 @@ namespace ButcherLabels.Classes
             try
             {
                 _connection.Open();
-                string sqlQuery = "INSERT INTO dbo.tblButcherLabelsData(ProductionDate, ProdCode, ProdDescription, Customer, Shift, LabelDescription, RawMaterialDescription, BatchNumber, PalletID, Udf2, Udf3, Udf4, KillDate, Lot, LabelBatchNumber, Weight, FactoryId) " +
-                                    "VALUES(@ProductionDate, @ProdCode, @ProdDescription, @Customer, @Shift, @LabelDescription, @RawMaterialDescription, @BatchNumber, @PalletId, @Udf2, @Udf3, @Udf4, @Killdate, @Lot, @LabelBatchNumber, @Weight, @FactoryId)";
+                string sqlQuery = "INSERT INTO dbo.tblButcherLabelsData(ProductionDate, ProdCode, ProdDescription, Customer, Shift, LabelDescription, RawMaterialCode, RawMaterialDescription, BatchNumber, PalletID, Udf2, Udf3, Udf4, KillDate, Lot, LabelBatchNumber, Weight, FactoryId) " +
+                                    "VALUES(@ProductionDate, @ProdCode, @ProdDescription, @Customer, @Shift, @LabelDescription, @RawMaterialCode, @RawMaterialDescription, @BatchNumber, @PalletId, @Udf2, @Udf3, @Udf4, @Killdate, @Lot, @LabelBatchNumber, @Weight, @FactoryId)";
 
                 SqlCommand cmd = new SqlCommand(sqlQuery, _connection);
                 cmd.Parameters.Add("@ProductionDate", SqlDbType.DateTime).Value = (object)ProductionDate ?? DBNull.Value;
@@ -45,6 +46,7 @@ namespace ButcherLabels.Classes
                 cmd.Parameters.Add("@Customer", SqlDbType.VarChar).Value = (object)Customer ?? DBNull.Value;
                 cmd.Parameters.Add("@Shift", SqlDbType.VarChar).Value = (object)Shift ?? DBNull.Value;
                 cmd.Parameters.Add("@LabelDescription", SqlDbType.VarChar).Value = (object)LabelDescription ?? DBNull.Value;
+                cmd.Parameters.Add("@RawMaterialCode", SqlDbType.VarChar).Value = (object)RawMaterialCode ?? DBNull.Value; 
                 cmd.Parameters.Add("@RawMaterialDescription", SqlDbType.VarChar).Value = (object)RawMaterialDescription ?? DBNull.Value;
                 cmd.Parameters.Add("@BatchNumber", SqlDbType.VarChar).Value = (object)BatchNumber ?? DBNull.Value;
                 cmd.Parameters.Add("@PalletId", SqlDbType.VarChar).Value = (object)PalletId ?? DBNull.Value;

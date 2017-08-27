@@ -155,7 +155,7 @@ namespace ButcherLabels
             {
                 if (sqlConn.TestConnection())
                 {
-                    var sqlDt = new SqlDataTable();
+                 //   var sqlDt = new SqlDataTable();
                     var sqlQuery = string.Empty;
                     string batchPallet = string.Empty;
 
@@ -248,6 +248,7 @@ namespace ButcherLabels
             insert.Customer = lookUpEdit_Customer.Text;
             insert.Shift = lookUpEdit_Shift.Text;
             insert.LabelDescription = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
+            insert.RawMaterialCode = dr["product"].ToString();
             insert.RawMaterialDescription = dr["description"].ToString();
 
             switch (_batchOrPallet)
@@ -272,6 +273,29 @@ namespace ButcherLabels
             insert.FactoryId = Properties.Settings.Default.Factory;
 
             insert.ExecuteInsertLabel();
+        }
+
+        private void GetDataForGridViewBatch()
+        {
+            try
+            {
+                string sqlQuery = string.Empty;
+                DataTable dt = new DataTable("Batch");
+                var sqlConn = new SqlConn(DbConnectionString());
+
+                sqlQuery = "SELECT RawMaterialCode AS Code, RawMaterialDescription AS Description, KillDate, Weight, LabelBatchNumber AS Batch "+
+                            "FROM tblButcherLabelsData "+
+                            "WHERE ProductionDate = '"+ string.Format("{0:MM/dd/yyyy}", dateEdit_ProdDate.EditValue) + "' AND "+
+                            "Customer='"+ lookUpEdit_Customer.Text +"' AND Shift='"+ lookUpEdit_Shift.Text +"' AND "+
+                            "ProdCode='"+ lookUpEdit_Product.GetColumnValue("ProdCode").ToString() + "'";
+                dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+                gridControl_Batch.DataSource = null;
+                gridControl_Batch.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Download data from database", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         #region Events
@@ -345,6 +369,7 @@ namespace ButcherLabels
             textEdit_Group.Text = lookUpEdit_Product.GetColumnValue("MachineName").ToString();
             string color = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
             lblColorLabel.Text = string.Format("Please ensure that the {0} labels are loaded in the printer.", color);
+            GetDataForGridViewBatch();
         }
 
         private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
@@ -369,7 +394,7 @@ namespace ButcherLabels
         private void gridView_Batch_RowStyle(object sender, RowStyleEventArgs e)
         {
             GridView view = sender as GridView;
-            if (e.RowHandle >= 0)
+          if (e.RowHandle >= 0)
             {
                 string category = view.GetRowCellDisplayText(e.RowHandle, view.Columns["Batch"]);
                 if (category == string.Empty)
