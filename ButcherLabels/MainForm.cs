@@ -144,7 +144,7 @@ namespace ButcherLabels
             dxValidationProvider1.Validate(lookUpEdit_Customer);
             dxValidationProvider1.Validate(lookUpEdit_Shift);
             dxValidationProvider1.Validate(lookUpEdit_Product);
-            dxValidationProvider1.Validate(textEdit_Barcode);
+         //   dxValidationProvider1.Validate(textEdit_Barcode);
         }
 
         private void GetDataFromSI(string barCode)
@@ -299,7 +299,8 @@ namespace ButcherLabels
                             "FROM tblButcherLabelsData "+
                             "WHERE ProductionDate = '"+ string.Format("{0:MM/dd/yyyy}", dateEdit_ProdDate.EditValue) + "' AND "+
                             "Customer='"+ lookUpEdit_Customer.Text +"' AND Shift='"+ lookUpEdit_Shift.Text +"' AND "+
-                            "ProdCode='"+ lookUpEdit_Product.GetColumnValue("ProdCode").ToString() + "'";
+                            "ProdCode='"+ lookUpEdit_Product.GetColumnValue("ProdCode").ToString() + "' AND "+
+                            "FactoryId='"+ Properties.Settings.Default.Factory +"'";
                 dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
                 gridControl_Batch.DataSource = null;
                 gridControl_Batch.DataSource = dt;
@@ -393,7 +394,12 @@ namespace ButcherLabels
             GetDataForGridViewBatch();
         }
 
-        private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
+        private void lookUpEdit_Shift_EditValueChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+       private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
         {
             ValidateControlsButcherLabels();
 

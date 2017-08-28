@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
             this.navBtnSettings = new DevExpress.XtraBars.Navigation.NavButton();
@@ -94,7 +93,7 @@
             this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnFactoryEK = new DevExpress.XtraEditors.SimpleButton();
             this.btnFactoryQNS = new DevExpress.XtraEditors.SimpleButton();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -339,6 +338,7 @@
             this.lookUpEdit_Shift.Size = new System.Drawing.Size(232, 46);
             this.lookUpEdit_Shift.StyleController = this.layoutControl1;
             this.lookUpEdit_Shift.TabIndex = 6;
+            this.lookUpEdit_Shift.EditValueChanged += new System.EventHandler(this.lookUpEdit_Shift_EditValueChanged);
             // 
             // dateEdit_ProdDate
             // 
@@ -800,7 +800,6 @@
             // 
             // navigationPage3
             // 
-            this.navigationPage3.Caption = "navigationPage3";
             this.navigationPage3.Controls.Add(this.btnFactoryEK);
             this.navigationPage3.Controls.Add(this.btnFactoryQNS);
             this.navigationPage3.Name = "navigationPage3";
