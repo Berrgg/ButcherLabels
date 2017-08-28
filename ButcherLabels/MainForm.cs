@@ -420,6 +420,8 @@ namespace ButcherLabels
 
                 AddLabelBatchNumberToGridView(gridControlDataTable, batchNumber, "Batch");
                 InsertLabelDataIntoDatabase(batchNumber);
+                textEdit_Barcode.EditValue = null;
+                textEdit_Barcode.Enabled = true;
             }
         }
 
@@ -427,8 +429,8 @@ namespace ButcherLabels
         {
             if (e.KeyCode == Keys.Enter)
             {
+                textEdit_Barcode.Enabled = false;
                 GetDataFromSI(textEdit_Barcode.Text);
-                textEdit_Barcode.EditValue = null;
             }
         }
 
@@ -444,6 +446,19 @@ namespace ButcherLabels
                 }
             }
       }
+
+        private void simpleButton_Cancel_Click(object sender, EventArgs e)
+        {
+            DataTable gridDataTable = (DataTable)(gridControl_Batch.DataSource);
+            if(gridDataTable != null && gridDataTable.Rows.Count > 0)
+                gridDataTable.Rows.RemoveAt(gridDataTable.Rows.Count - 1);
+
+            if(_butcherLabelsTable != null && _butcherLabelsTable.Rows.Count > 0)
+                _butcherLabelsTable.Rows.RemoveAt(_butcherLabelsTable.Rows.Count - 1);
+
+            textEdit_Barcode.EditValue = null;
+            textEdit_Barcode.Enabled = true;
+        }
         #endregion
 
     }

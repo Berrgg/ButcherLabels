@@ -94,6 +94,9 @@
             this.btnFactoryEK = new DevExpress.XtraEditors.SimpleButton();
             this.btnFactoryQNS = new DevExpress.XtraEditors.SimpleButton();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.simpleButton_Cancel = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControl_CancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -142,6 +145,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
             this.navigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -233,6 +238,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Controls.Add(this.simpleButton_Cancel);
             this.layoutControl1.Controls.Add(this.lblColorLabel);
             this.layoutControl1.Controls.Add(this.gridControl_Batch);
             this.layoutControl1.Controls.Add(this.textEdit_Barcode);
@@ -254,7 +260,7 @@
             // 
             this.lblColorLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblColorLabel.Appearance.Options.UseFont = true;
-            this.lblColorLabel.Location = new System.Drawing.Point(12, 190);
+            this.lblColorLabel.Location = new System.Drawing.Point(12, 188);
             this.lblColorLabel.Name = "lblColorLabel";
             this.lblColorLabel.Size = new System.Drawing.Size(1025, 23);
             this.lblColorLabel.StyleController = this.layoutControl1;
@@ -265,10 +271,10 @@
             gridLevelNode1.RelationName = "Level1";
             this.gridControl_Batch.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
             gridLevelNode1});
-            this.gridControl_Batch.Location = new System.Drawing.Point(12, 237);
+            this.gridControl_Batch.Location = new System.Drawing.Point(12, 232);
             this.gridControl_Batch.MainView = this.gridView_Batch;
             this.gridControl_Batch.Name = "gridControl_Batch";
-            this.gridControl_Batch.Size = new System.Drawing.Size(639, 301);
+            this.gridControl_Batch.Size = new System.Drawing.Size(639, 306);
             this.gridControl_Batch.TabIndex = 12;
             this.gridControl_Batch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView_Batch});
@@ -288,11 +294,11 @@
             // 
             // textEdit_Barcode
             // 
-            this.textEdit_Barcode.Location = new System.Drawing.Point(692, 124);
+            this.textEdit_Barcode.Location = new System.Drawing.Point(718, 124);
             this.textEdit_Barcode.Name = "textEdit_Barcode";
             this.textEdit_Barcode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textEdit_Barcode.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_Barcode.Size = new System.Drawing.Size(335, 46);
+            this.textEdit_Barcode.Size = new System.Drawing.Size(309, 46);
             this.textEdit_Barcode.StyleController = this.layoutControl1;
             this.textEdit_Barcode.TabIndex = 11;
             this.textEdit_Barcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textEdit_Barcode_KeyDown);
@@ -361,9 +367,9 @@
             // 
             this.simpleButton_PrintLabel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.simpleButton_PrintLabel.Appearance.Options.UseFont = true;
-            this.simpleButton_PrintLabel.Location = new System.Drawing.Point(701, 337);
+            this.simpleButton_PrintLabel.Location = new System.Drawing.Point(701, 274);
             this.simpleButton_PrintLabel.Name = "simpleButton_PrintLabel";
-            this.simpleButton_PrintLabel.Size = new System.Drawing.Size(300, 107);
+            this.simpleButton_PrintLabel.Size = new System.Drawing.Size(300, 94);
             this.simpleButton_PrintLabel.StyleController = this.layoutControl1;
             this.simpleButton_PrintLabel.TabIndex = 14;
             this.simpleButton_PrintLabel.Text = "PRINT LABEL";
@@ -376,7 +382,7 @@
             this.textEdit_Group.Name = "textEdit_Group";
             this.textEdit_Group.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.textEdit_Group.Properties.Appearance.Options.UseFont = true;
-            this.textEdit_Group.Size = new System.Drawing.Size(177, 46);
+            this.textEdit_Group.Size = new System.Drawing.Size(203, 46);
             this.textEdit_Group.StyleController = this.layoutControl1;
             this.textEdit_Group.TabIndex = 11;
             // 
@@ -406,7 +412,9 @@
             this.emptySpaceItem13,
             this.layoutItem_Group,
             this.emptySpaceItem12,
-            this.emptySpaceItem11});
+            this.emptySpaceItem11,
+            this.emptySpaceItem14,
+            this.layoutControl_CancelButton});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1049, 550);
@@ -429,7 +437,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 162);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(1029, 16);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(1029, 14);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutItem_Shift
@@ -469,9 +477,9 @@
             this.layoutItem_Barcode.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 14F);
             this.layoutItem_Barcode.AppearanceItemCaption.Options.UseFont = true;
             this.layoutItem_Barcode.Control = this.textEdit_Barcode;
-            this.layoutItem_Barcode.Location = new System.Drawing.Point(680, 86);
+            this.layoutItem_Barcode.Location = new System.Drawing.Point(706, 86);
             this.layoutItem_Barcode.Name = "layoutItem_Barcode";
-            this.layoutItem_Barcode.Size = new System.Drawing.Size(339, 76);
+            this.layoutItem_Barcode.Size = new System.Drawing.Size(313, 76);
             this.layoutItem_Barcode.Text = "Barcode:";
             this.layoutItem_Barcode.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Barcode.TextSize = new System.Drawing.Size(139, 23);
@@ -503,36 +511,36 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gridControl_Batch;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 225);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 220);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(643, 305);
+            this.layoutControlItem1.Size = new System.Drawing.Size(643, 310);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem7
             // 
             this.emptySpaceItem7.AllowHotTrack = false;
-            this.emptySpaceItem7.Location = new System.Drawing.Point(643, 225);
+            this.emptySpaceItem7.Location = new System.Drawing.Point(643, 220);
             this.emptySpaceItem7.Name = "emptySpaceItem7";
-            this.emptySpaceItem7.Size = new System.Drawing.Size(46, 305);
+            this.emptySpaceItem7.Size = new System.Drawing.Size(46, 310);
             this.emptySpaceItem7.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(689, 436);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(689, 360);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
-            this.emptySpaceItem9.Size = new System.Drawing.Size(304, 94);
+            this.emptySpaceItem9.Size = new System.Drawing.Size(304, 40);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutItem_PrintLabel
             // 
             this.layoutItem_PrintLabel.Control = this.simpleButton_PrintLabel;
-            this.layoutItem_PrintLabel.Location = new System.Drawing.Point(689, 325);
+            this.layoutItem_PrintLabel.Location = new System.Drawing.Point(689, 262);
             this.layoutItem_PrintLabel.MaxSize = new System.Drawing.Size(0, 124);
             this.layoutItem_PrintLabel.MinSize = new System.Drawing.Size(111, 46);
             this.layoutItem_PrintLabel.Name = "layoutItem_PrintLabel";
-            this.layoutItem_PrintLabel.Size = new System.Drawing.Size(304, 111);
+            this.layoutItem_PrintLabel.Size = new System.Drawing.Size(304, 98);
             this.layoutItem_PrintLabel.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutItem_PrintLabel.TextSize = new System.Drawing.Size(0, 0);
             this.layoutItem_PrintLabel.TextVisible = false;
@@ -540,17 +548,17 @@
             // emptySpaceItem8
             // 
             this.emptySpaceItem8.AllowHotTrack = false;
-            this.emptySpaceItem8.Location = new System.Drawing.Point(993, 225);
+            this.emptySpaceItem8.Location = new System.Drawing.Point(993, 220);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(36, 305);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(36, 310);
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem10
             // 
             this.emptySpaceItem10.AllowHotTrack = false;
-            this.emptySpaceItem10.Location = new System.Drawing.Point(689, 225);
+            this.emptySpaceItem10.Location = new System.Drawing.Point(689, 220);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
-            this.emptySpaceItem10.Size = new System.Drawing.Size(304, 100);
+            this.emptySpaceItem10.Size = new System.Drawing.Size(304, 42);
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -576,7 +584,7 @@
             // layoutItem_ColorLabel
             // 
             this.layoutItem_ColorLabel.Control = this.lblColorLabel;
-            this.layoutItem_ColorLabel.Location = new System.Drawing.Point(0, 178);
+            this.layoutItem_ColorLabel.Location = new System.Drawing.Point(0, 176);
             this.layoutItem_ColorLabel.Name = "layoutItem_ColorLabel";
             this.layoutItem_ColorLabel.Size = new System.Drawing.Size(1029, 27);
             this.layoutItem_ColorLabel.TextSize = new System.Drawing.Size(0, 0);
@@ -585,9 +593,9 @@
             // emptySpaceItem13
             // 
             this.emptySpaceItem13.AllowHotTrack = false;
-            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 205);
+            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 203);
             this.emptySpaceItem13.Name = "emptySpaceItem13";
-            this.emptySpaceItem13.Size = new System.Drawing.Size(1029, 20);
+            this.emptySpaceItem13.Size = new System.Drawing.Size(1029, 17);
             this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutItem_Group
@@ -598,7 +606,7 @@
             this.layoutItem_Group.CustomizationFormText = "Barcode:";
             this.layoutItem_Group.Location = new System.Drawing.Point(489, 86);
             this.layoutItem_Group.Name = "layoutItem_Group";
-            this.layoutItem_Group.Size = new System.Drawing.Size(181, 76);
+            this.layoutItem_Group.Size = new System.Drawing.Size(207, 76);
             this.layoutItem_Group.Text = "Group:";
             this.layoutItem_Group.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutItem_Group.TextSize = new System.Drawing.Size(139, 23);
@@ -606,7 +614,7 @@
             // emptySpaceItem12
             // 
             this.emptySpaceItem12.AllowHotTrack = false;
-            this.emptySpaceItem12.Location = new System.Drawing.Point(670, 86);
+            this.emptySpaceItem12.Location = new System.Drawing.Point(696, 86);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
             this.emptySpaceItem12.Size = new System.Drawing.Size(10, 76);
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
@@ -833,6 +841,38 @@
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
             // 
+            // emptySpaceItem14
+            // 
+            this.emptySpaceItem14.AllowHotTrack = false;
+            this.emptySpaceItem14.Location = new System.Drawing.Point(689, 493);
+            this.emptySpaceItem14.Name = "emptySpaceItem14";
+            this.emptySpaceItem14.Size = new System.Drawing.Size(304, 37);
+            this.emptySpaceItem14.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // simpleButton_Cancel
+            // 
+            this.simpleButton_Cancel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.simpleButton_Cancel.Appearance.Options.UseFont = true;
+            this.simpleButton_Cancel.Location = new System.Drawing.Point(701, 412);
+            this.simpleButton_Cancel.Name = "simpleButton_Cancel";
+            this.simpleButton_Cancel.Size = new System.Drawing.Size(300, 89);
+            this.simpleButton_Cancel.StyleController = this.layoutControl1;
+            this.simpleButton_Cancel.TabIndex = 16;
+            this.simpleButton_Cancel.Text = "CANCEL";
+            this.simpleButton_Cancel.Click += new System.EventHandler(this.simpleButton_Cancel_Click);
+            // 
+            // layoutControl_CancelButton
+            // 
+            this.layoutControl_CancelButton.Control = this.simpleButton_Cancel;
+            this.layoutControl_CancelButton.Location = new System.Drawing.Point(689, 400);
+            this.layoutControl_CancelButton.MaxSize = new System.Drawing.Size(0, 100);
+            this.layoutControl_CancelButton.MinSize = new System.Drawing.Size(132, 46);
+            this.layoutControl_CancelButton.Name = "layoutControl_CancelButton";
+            this.layoutControl_CancelButton.Size = new System.Drawing.Size(304, 93);
+            this.layoutControl_CancelButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControl_CancelButton.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControl_CancelButton.TextVisible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -894,6 +934,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
             this.navigationPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -962,6 +1004,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutItem_Group;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem11;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProvider1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton_Cancel;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem14;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControl_CancelButton;
     }
 }
 
