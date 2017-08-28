@@ -320,6 +320,14 @@ namespace ButcherLabels
             }
         }
 
+        private bool CanTakeDataForGridView()
+        {
+            if (lookUpEdit_Customer.Text != string.Empty && lookUpEdit_Shift.Text != string.Empty && lookUpEdit_Product.Text != string.Empty)
+                return true;
+            else
+                return false;
+        }
+
         #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
@@ -384,6 +392,8 @@ namespace ButcherLabels
         private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
         {
             SetControlsLookUpEditProductList();
+            gridControl_Batch.DataSource = null;
+            if (CanTakeDataForGridView()) GetDataForGridViewBatch();
         }
 
         private void lookUpEdit_Product_EditValueChanged(object sender, EventArgs e)
@@ -391,15 +401,15 @@ namespace ButcherLabels
             textEdit_Group.Text = lookUpEdit_Product.GetColumnValue("MachineName").ToString();
             string color = lookUpEdit_Product.GetColumnValue("LabelType").ToString();
             lblColorLabel.Text = string.Format("Please ensure that the {0} labels are loaded in the printer.", color);
-            GetDataForGridViewBatch();
+            if(CanTakeDataForGridView()) GetDataForGridViewBatch();
         }
 
         private void lookUpEdit_Shift_EditValueChanged(object sender, EventArgs e)
         {
-            
+            if (CanTakeDataForGridView()) GetDataForGridViewBatch();
         }
 
-       private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
+        private void simpleButton_PrintLabel_Click(object sender, EventArgs e)
         {
             ValidateControlsButcherLabels();
 
@@ -413,7 +423,7 @@ namespace ButcherLabels
             }
         }
 
-         private void textEdit_Barcode_KeyDown(object sender, KeyEventArgs e)
+        private void textEdit_Barcode_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
