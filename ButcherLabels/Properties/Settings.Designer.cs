@@ -118,5 +118,17 @@ namespace ButcherLabels.Properties {
                 this["Factory"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10.3.1.7")]
+        public string AppDbServer {
+            get {
+                return ((string)(this["AppDbServer"]));
+            }
+            set {
+                this["AppDbServer"] = value;
+            }
+        }
     }
 }

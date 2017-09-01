@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
             this.navBtnSettings = new DevExpress.XtraBars.Navigation.NavButton();
@@ -40,6 +41,7 @@
             this.navigationFrame1 = new DevExpress.XtraBars.Navigation.NavigationFrame();
             this.navigationPage1 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.simpleButton_Cancel = new DevExpress.XtraEditors.SimpleButton();
             this.lblColorLabel = new DevExpress.XtraEditors.LabelControl();
             this.gridControl_Batch = new DevExpress.XtraGrid.GridControl();
             this.gridView_Batch = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -73,6 +75,8 @@
             this.layoutItem_Group = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem11 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControl_CancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -93,10 +97,8 @@
             this.navigationPage3 = new DevExpress.XtraBars.Navigation.NavigationPage();
             this.btnFactoryEK = new DevExpress.XtraEditors.SimpleButton();
             this.btnFactoryQNS = new DevExpress.XtraEditors.SimpleButton();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.simpleButton_Cancel = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControl_CancelButton = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.txtAppServer = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -135,6 +137,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Group)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).BeginInit();
             this.navigationPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
@@ -145,8 +149,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
             this.navigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAppServer.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -255,6 +258,18 @@
             this.layoutControl1.Size = new System.Drawing.Size(1049, 550);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // simpleButton_Cancel
+            // 
+            this.simpleButton_Cancel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
+            this.simpleButton_Cancel.Appearance.Options.UseFont = true;
+            this.simpleButton_Cancel.Location = new System.Drawing.Point(701, 412);
+            this.simpleButton_Cancel.Name = "simpleButton_Cancel";
+            this.simpleButton_Cancel.Size = new System.Drawing.Size(300, 89);
+            this.simpleButton_Cancel.StyleController = this.layoutControl1;
+            this.simpleButton_Cancel.TabIndex = 16;
+            this.simpleButton_Cancel.Text = "CANCEL";
+            this.simpleButton_Cancel.Click += new System.EventHandler(this.simpleButton_Cancel_Click);
             // 
             // lblColorLabel
             // 
@@ -627,9 +642,29 @@
             this.emptySpaceItem11.Size = new System.Drawing.Size(10, 76);
             this.emptySpaceItem11.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // emptySpaceItem14
+            // 
+            this.emptySpaceItem14.AllowHotTrack = false;
+            this.emptySpaceItem14.Location = new System.Drawing.Point(689, 493);
+            this.emptySpaceItem14.Name = "emptySpaceItem14";
+            this.emptySpaceItem14.Size = new System.Drawing.Size(304, 37);
+            this.emptySpaceItem14.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControl_CancelButton
+            // 
+            this.layoutControl_CancelButton.Control = this.simpleButton_Cancel;
+            this.layoutControl_CancelButton.Location = new System.Drawing.Point(689, 400);
+            this.layoutControl_CancelButton.MaxSize = new System.Drawing.Size(0, 100);
+            this.layoutControl_CancelButton.MinSize = new System.Drawing.Size(132, 46);
+            this.layoutControl_CancelButton.Name = "layoutControl_CancelButton";
+            this.layoutControl_CancelButton.Size = new System.Drawing.Size(304, 93);
+            this.layoutControl_CancelButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControl_CancelButton.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControl_CancelButton.TextVisible = false;
+            // 
             // navigationPage2
             // 
-            this.navigationPage2.Caption = "navigationPage2";
+            this.navigationPage2.Controls.Add(this.txtAppServer);
             this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
             this.navigationPage2.Controls.Add(this.txtPasswordSI);
@@ -705,7 +740,7 @@
             // 
             this.lblSI.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblSI.Appearance.Options.UseFont = true;
-            this.lblSI.Location = new System.Drawing.Point(678, 195);
+            this.lblSI.Location = new System.Drawing.Point(687, 131);
             this.lblSI.Name = "lblSI";
             this.lblSI.Size = new System.Drawing.Size(100, 23);
             this.lblSI.TabIndex = 10;
@@ -725,7 +760,7 @@
             // 
             this.lblApp.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblApp.Appearance.Options.UseFont = true;
-            this.lblApp.Location = new System.Drawing.Point(294, 195);
+            this.lblApp.Location = new System.Drawing.Point(282, 131);
             this.lblApp.Name = "lblApp";
             this.lblApp.Size = new System.Drawing.Size(173, 23);
             this.lblApp.TabIndex = 8;
@@ -745,7 +780,7 @@
             // 
             this.lblServer.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.lblServer.Appearance.Options.UseFont = true;
-            this.lblServer.Location = new System.Drawing.Point(54, 121);
+            this.lblServer.Location = new System.Drawing.Point(54, 195);
             this.lblServer.Name = "lblServer";
             this.lblServer.Size = new System.Drawing.Size(61, 23);
             this.lblServer.TabIndex = 6;
@@ -799,7 +834,7 @@
             // 
             // txtServer
             // 
-            this.txtServer.Location = new System.Drawing.Point(201, 110);
+            this.txtServer.Location = new System.Drawing.Point(574, 184);
             this.txtServer.Name = "txtServer";
             this.txtServer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.txtServer.Properties.Appearance.Options.UseFont = true;
@@ -808,6 +843,7 @@
             // 
             // navigationPage3
             // 
+            this.navigationPage3.Caption = "navigationPage3";
             this.navigationPage3.Controls.Add(this.btnFactoryEK);
             this.navigationPage3.Controls.Add(this.btnFactoryQNS);
             this.navigationPage3.Name = "navigationPage3";
@@ -841,37 +877,14 @@
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
             // 
-            // emptySpaceItem14
+            // txtAppServer
             // 
-            this.emptySpaceItem14.AllowHotTrack = false;
-            this.emptySpaceItem14.Location = new System.Drawing.Point(689, 493);
-            this.emptySpaceItem14.Name = "emptySpaceItem14";
-            this.emptySpaceItem14.Size = new System.Drawing.Size(304, 37);
-            this.emptySpaceItem14.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // simpleButton_Cancel
-            // 
-            this.simpleButton_Cancel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
-            this.simpleButton_Cancel.Appearance.Options.UseFont = true;
-            this.simpleButton_Cancel.Location = new System.Drawing.Point(701, 412);
-            this.simpleButton_Cancel.Name = "simpleButton_Cancel";
-            this.simpleButton_Cancel.Size = new System.Drawing.Size(300, 89);
-            this.simpleButton_Cancel.StyleController = this.layoutControl1;
-            this.simpleButton_Cancel.TabIndex = 16;
-            this.simpleButton_Cancel.Text = "CANCEL";
-            this.simpleButton_Cancel.Click += new System.EventHandler(this.simpleButton_Cancel_Click);
-            // 
-            // layoutControl_CancelButton
-            // 
-            this.layoutControl_CancelButton.Control = this.simpleButton_Cancel;
-            this.layoutControl_CancelButton.Location = new System.Drawing.Point(689, 400);
-            this.layoutControl_CancelButton.MaxSize = new System.Drawing.Size(0, 100);
-            this.layoutControl_CancelButton.MinSize = new System.Drawing.Size(132, 46);
-            this.layoutControl_CancelButton.Name = "layoutControl_CancelButton";
-            this.layoutControl_CancelButton.Size = new System.Drawing.Size(304, 93);
-            this.layoutControl_CancelButton.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControl_CancelButton.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControl_CancelButton.TextVisible = false;
+            this.txtAppServer.Location = new System.Drawing.Point(201, 184);
+            this.txtAppServer.Name = "txtAppServer";
+            this.txtAppServer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.txtAppServer.Properties.Appearance.Options.UseFont = true;
+            this.txtAppServer.Size = new System.Drawing.Size(334, 46);
+            this.txtAppServer.TabIndex = 17;
             // 
             // MainForm
             // 
@@ -923,6 +936,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutItem_Group)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).EndInit();
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).EndInit();
@@ -934,8 +949,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
             this.navigationPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAppServer.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1007,6 +1021,7 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton_Cancel;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem14;
         private DevExpress.XtraLayout.LayoutControlItem layoutControl_CancelButton;
+        private DevExpress.XtraEditors.TextEdit txtAppServer;
     }
 }
 

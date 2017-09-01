@@ -34,7 +34,7 @@ namespace ButcherLabels
         private string DbConnectionString()
         {
             var settings = Properties.Settings.Default;
-            var connStr = new SqlConnectionString(settings.ServerQNS, settings.Database, settings.User, settings.Password);
+            var connStr = new SqlConnectionString(settings.AppDbServer, settings.Database, settings.User, settings.Password);
             return connStr.ConnString();
         }
 
@@ -341,6 +341,7 @@ namespace ButcherLabels
             txtUserNameSI.EditValue = sett.UserSI;
             txtPassword.EditValue = sett.Password;
             txtPasswordSI.EditValue = sett.PasswordSI;
+            txtAppServer.EditValue = sett.AppDbServer;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -368,6 +369,7 @@ namespace ButcherLabels
             sett.UserSI = txtUserNameSI.Text;
             sett.Password = txtPassword.Text;
             sett.PasswordSI = txtPasswordSI.Text;
+            sett.AppDbServer = txtAppServer.Text;
             sett.Save();
         }
 

@@ -26,5 +26,8 @@
     <Setting Name="Factory" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">1</Value>
     </Setting>
+    <Setting Name="AppDbServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">10.3.1.7</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
