@@ -78,6 +78,7 @@
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControl_CancelButton = new DevExpress.XtraLayout.LayoutControlItem();
             this.navigationPage2 = new DevExpress.XtraBars.Navigation.NavigationPage();
+            this.txtAppServer = new DevExpress.XtraEditors.TextEdit();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.txtPasswordSI = new DevExpress.XtraEditors.TextEdit();
@@ -98,7 +99,6 @@
             this.btnFactoryEK = new DevExpress.XtraEditors.SimpleButton();
             this.btnFactoryQNS = new DevExpress.XtraEditors.SimpleButton();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.txtAppServer = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -140,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).BeginInit();
             this.navigationPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAppServer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).BeginInit();
@@ -149,7 +150,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
             this.navigationPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAppServer.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // tileNavPane1
@@ -664,6 +664,7 @@
             // 
             // navigationPage2
             // 
+            this.navigationPage2.Caption = "navigationPage2";
             this.navigationPage2.Controls.Add(this.txtAppServer);
             this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
@@ -683,6 +684,15 @@
             this.navigationPage2.Controls.Add(this.txtServer);
             this.navigationPage2.Name = "navigationPage2";
             this.navigationPage2.Size = new System.Drawing.Size(1049, 550);
+            // 
+            // txtAppServer
+            // 
+            this.txtAppServer.Location = new System.Drawing.Point(201, 184);
+            this.txtAppServer.Name = "txtAppServer";
+            this.txtAppServer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.txtAppServer.Properties.Appearance.Options.UseFont = true;
+            this.txtAppServer.Size = new System.Drawing.Size(334, 46);
+            this.txtAppServer.TabIndex = 17;
             // 
             // btnClose
             // 
@@ -877,15 +887,6 @@
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
             // 
-            // txtAppServer
-            // 
-            this.txtAppServer.Location = new System.Drawing.Point(201, 184);
-            this.txtAppServer.Name = "txtAppServer";
-            this.txtAppServer.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
-            this.txtAppServer.Properties.Appearance.Options.UseFont = true;
-            this.txtAppServer.Size = new System.Drawing.Size(334, 46);
-            this.txtAppServer.TabIndex = 17;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -940,6 +941,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl_CancelButton)).EndInit();
             this.navigationPage2.ResumeLayout(false);
             this.navigationPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAppServer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPasswordSI.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).EndInit();
@@ -949,7 +951,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
             this.navigationPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtAppServer.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

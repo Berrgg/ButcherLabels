@@ -265,10 +265,12 @@ namespace ButcherLabels
                 switch (_batchOrPallet)
                 {
                     case SqlQueryBatchPallet.PalletBatchField.palletid:
-                        insert.PalletId = dr["palletid"].ToString();
+                     //   insert.PalletId = dr["palletid"].ToString();
+                        insert.PalletId = dr["PalletNumber"].ToString();
                         break;
                     case SqlQueryBatchPallet.PalletBatchField.batchno:
-                        insert.BatchNumber = dr["batchno"].ToString();
+                     //   insert.BatchNumber = dr["batchno"].ToString();
+                        insert.BatchNumber = dr["PalletNumber"].ToString();
                         break;
                     default:
                         break;

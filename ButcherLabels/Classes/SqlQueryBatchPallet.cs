@@ -13,7 +13,7 @@ namespace ButcherLabels.Classes
         {
             string select1 = "SELECT inventorybatch.product, inventory.description, lot, ";
             string select2 = field.ToString();
-            string select3 = ", udf1, udf2, udf3, udf4, killdate, sum(origqty) as Weight ";
+            string select3 = " as PalletNumber, udf1, udf2, udf3, udf4, killdate, sum(origqty) as Weight ";
             string from = "FROM inventorybatch join inventory on inventorybatch.product = inventory.product ";
             string where = "WHERE "+ field.ToString() + " = ";
             string param1 = "'" + palletId + "'";
