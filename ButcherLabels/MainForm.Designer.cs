@@ -263,6 +263,7 @@
             // 
             this.simpleButton_Cancel.Appearance.Font = new System.Drawing.Font("Tahoma", 16F, System.Drawing.FontStyle.Bold);
             this.simpleButton_Cancel.Appearance.Options.UseFont = true;
+            this.simpleButton_Cancel.Enabled = false;
             this.simpleButton_Cancel.Location = new System.Drawing.Point(701, 412);
             this.simpleButton_Cancel.Name = "simpleButton_Cancel";
             this.simpleButton_Cancel.Size = new System.Drawing.Size(300, 89);

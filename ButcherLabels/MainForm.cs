@@ -426,6 +426,7 @@ namespace ButcherLabels
                 InsertLabelDataIntoDatabase(batchNumber);
                 textEdit_Barcode.EditValue = null;
                 textEdit_Barcode.Enabled = true;
+                simpleButton_Cancel.Enabled = false;
             }
         }
 
@@ -434,6 +435,7 @@ namespace ButcherLabels
             if (e.KeyCode == Keys.Enter)
             {
                 textEdit_Barcode.Enabled = false;
+                simpleButton_Cancel.Enabled = true;
                 GetDataFromSI(textEdit_Barcode.Text);
             }
         }
@@ -462,6 +464,7 @@ namespace ButcherLabels
 
             textEdit_Barcode.EditValue = null;
             textEdit_Barcode.Enabled = true;
+            simpleButton_Cancel.Enabled = false;
         }
         #endregion
 
