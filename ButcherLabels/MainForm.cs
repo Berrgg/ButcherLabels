@@ -330,6 +330,17 @@ namespace ButcherLabels
                 return false;
         }
 
+        private void XmlDataForReport()
+        {
+            string sqlQuery = "SELECT inventorybatch.product, inventory.description, lot, palletid as PalletNumber, udf1, udf2, udf3, udf4, killdate, sum(origqty) as Weight FROM inventorybatch join inventory on inventorybatch.product = inventory.product WHERE palletid = '111000087717'Group by inventorybatch.product, inventory.description, lot, palletid, udf1, udf2, udf3, udf4, killdate";
+            DataTable dt = new DataTable();
+            var sqlConn = new SqlConn(SIConnectionString());
+
+            dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
+            dt.TableName = "tblPalletBatch";
+            dt.WriteXmlSchema(@"C:\Users\krzysztof.matyja\Dropbox\Employee365 Projects\Traceability\PalletBatch.xsd");
+        }
+
         #region Events
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
@@ -391,6 +402,7 @@ namespace ButcherLabels
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
             dateEdit_ProdDate.EditValue = DateTime.Today;
+          //  XmlDataForReport();
         }
 
         private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
