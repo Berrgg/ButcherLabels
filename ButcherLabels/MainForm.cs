@@ -332,9 +332,9 @@ namespace ButcherLabels
 
         private void XmlDataForReport()
         {
-            string sqlQuery = "SELECT inventorybatch.product, inventory.description, lot, palletid as PalletNumber, udf1, udf2, udf3, udf4, killdate, sum(origqty) as Weight FROM inventorybatch join inventory on inventorybatch.product = inventory.product WHERE palletid = '111000087717'Group by inventorybatch.product, inventory.description, lot, palletid, udf1, udf2, udf3, udf4, killdate";
+            string sqlQuery = "SELECT ProductionDate, ProdDescription, RawMaterialDescription, Customer, Shift, LabelDescription as Color, Lot, PalletId, Udf2, Udf3, Udf4, KillDate, LabelBatchNumber AS Batch FROM tblButcherLabelsData WHERE ProductionDate = '09/05/2017' AND Customer='Lidl' AND Shift='Dayshift' AND ProdCode='LD5204354' AND FactoryId='1'";
             DataTable dt = new DataTable();
-            var sqlConn = new SqlConn(SIConnectionString());
+            var sqlConn = new SqlConn(DbConnectionString());
 
             dt = SqlDataTable.GetDatatable(sqlConn.GetSqlConnection(), sqlQuery);
             dt.TableName = "tblPalletBatch";
@@ -402,7 +402,7 @@ namespace ButcherLabels
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
             dateEdit_ProdDate.EditValue = DateTime.Today;
-          //  XmlDataForReport();
+            XmlDataForReport();
         }
 
         private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
