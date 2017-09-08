@@ -73,5 +73,51 @@ namespace ButcherLabels.Classes
             }
         }
 
+        public DataTable GetDataTableForReport(string palletBatch)
+        {
+            DataTable tableForReport = tableForLabel();
+            DataRow dr = tableForReport.NewRow();
+
+            dr["ProductionDate"] = ProductionDate;
+            dr["ProdDescription"] = ProdDescription;
+            dr["RawMaterialDescription"] = RawMaterialDescription;
+            dr["Customer"] = Customer;
+            dr["Shift"] = Shift;
+            dr["Color"] = LabelDescription;
+            dr["Lot"] = Lot;
+            switch (palletBatch)
+            {
+                case "palletid": dr["PalletId"] = PalletId; break;
+                case "batchno": dr["PalletId"] = BatchNumber; break;
+            }
+            dr["Udf2"] = Udf2;
+            dr["Udf3"] = Udf3;
+            dr["Udf4"] = Udf4;
+            dr["KillDate"] = KillDate;
+            dr["Batch"] = LabelBatchNumber;
+
+            tableForReport.Rows.Add(dr);
+            return tableForReport;
+        }
+
+        private DataTable tableForLabel()
+        {
+            DataTable dt = new DataTable("tblPalletBatch");
+            dt.Columns.Add("ProductionDate", typeof(DateTime));
+            dt.Columns.Add("ProdDescription", typeof(string));
+            dt.Columns.Add("RawMaterialDescription", typeof(string));
+            dt.Columns.Add("Customer", typeof(string));
+            dt.Columns.Add("Shift", typeof(string));
+            dt.Columns.Add("Color", typeof(string));
+            dt.Columns.Add("Lot", typeof(string));
+            dt.Columns.Add("PalletId", typeof(string));
+            dt.Columns.Add("Udf2", typeof(string));
+            dt.Columns.Add("Udf3", typeof(string));
+            dt.Columns.Add("Udf4", typeof(string));
+            dt.Columns.Add("KillDate", typeof(DateTime));
+            dt.Columns.Add("Batch", typeof(int));
+
+            return dt;
+        }
     }
 }

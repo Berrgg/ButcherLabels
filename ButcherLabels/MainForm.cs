@@ -7,6 +7,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.Controls;
 using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraReports.UI;
 
 namespace ButcherLabels
 {
@@ -14,6 +15,7 @@ namespace ButcherLabels
     {
         private DataTable _butcherLabelsTable;
         private SqlQueryBatchPallet.PalletBatchField _batchOrPallet { get; set; }
+        private InsertCommand dataForPrintLabel;
 
         public MainForm()
         {
@@ -265,11 +267,9 @@ namespace ButcherLabels
                 switch (_batchOrPallet)
                 {
                     case SqlQueryBatchPallet.PalletBatchField.palletid:
-                     //   insert.PalletId = dr["palletid"].ToString();
                         insert.PalletId = dr["PalletNumber"].ToString();
                         break;
                     case SqlQueryBatchPallet.PalletBatchField.batchno:
-                     //   insert.BatchNumber = dr["batchno"].ToString();
                         insert.BatchNumber = dr["PalletNumber"].ToString();
                         break;
                     default:
@@ -286,6 +286,7 @@ namespace ButcherLabels
                 insert.FactoryId = Properties.Settings.Default.Factory;
 
                 insert.ExecuteInsertLabel();
+                dataForPrintLabel = insert;
             }
         }
 
@@ -328,6 +329,24 @@ namespace ButcherLabels
                 return true;
             else
                 return false;
+        }
+
+        private void PrintLabel()
+        {
+            DataTable dt = dataForPrintLabel.GetDataTableForReport(_batchOrPallet.ToString());
+
+            if(dt.Rows.Count > 0)
+            {
+                object reportInstance = Activator.CreateInstance(Type.GetType("ButcherLabels.Reports.ButcherLabel"));
+
+                var report = (XtraReport)(reportInstance);
+                report.DataSource = dt;
+                report.DataMember = "tblPalletBatch";
+                report.CreateDocument();
+
+                var pt = new ReportPrintTool(report);
+                pt.ShowRibbonPreview();
+            }
         }
 
         private void XmlDataForReport()
@@ -402,7 +421,7 @@ namespace ButcherLabels
             sett.Save();
             navigationFrame1.SelectedPage = navigationPage1;
             dateEdit_ProdDate.EditValue = DateTime.Today;
-            XmlDataForReport();
+          //  XmlDataForReport();
         }
 
         private void lookUpEdit_Customer_EditValueChanged(object sender, EventArgs e)
@@ -436,6 +455,7 @@ namespace ButcherLabels
 
                 AddLabelBatchNumberToGridView(gridControlDataTable, batchNumber, "Batch");
                 InsertLabelDataIntoDatabase(batchNumber);
+                PrintLabel();
                 textEdit_Barcode.EditValue = null;
                 textEdit_Barcode.Enabled = true;
                 simpleButton_Cancel.Enabled = false;
