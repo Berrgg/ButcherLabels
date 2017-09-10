@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System;
+using System.Data.SqlClient;
 
 namespace ButcherLabels.Classes.Database
 {
@@ -22,13 +23,20 @@ namespace ButcherLabels.Classes.Database
         {
             var conn = new SqlConnection(_connectionString);
 
-            using (conn)
+            try
             {
                 conn.Open();
-                if (conn.State == System.Data.ConnectionState.Open)
-                    return true;
-                else
-                    return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+               return false;
+               throw new Exception(ex.Message);
+            }
+            finally
+            {
+                if (conn != null)
+                    conn.Dispose();
             }
         }
     }

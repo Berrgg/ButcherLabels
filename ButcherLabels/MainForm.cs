@@ -349,6 +349,14 @@ namespace ButcherLabels
             }
         }
 
+        private void ConnectionTest(SqlConn conn)
+        {
+            if (!conn.TestConnection())
+                XtraMessageBox.Show("Connection test failed.", "Connection test", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+                XtraMessageBox.Show("Connection test successful.", "Connection test", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void XmlDataForReport()
         {
             string sqlQuery = "SELECT ProductionDate, ProdDescription, RawMaterialDescription, Customer, Shift, LabelDescription as Color, Lot, PalletId, Udf2, Udf3, Udf4, KillDate, LabelBatchNumber AS Batch FROM tblButcherLabelsData WHERE ProductionDate = '09/05/2017' AND Customer='Lidl' AND Shift='Dayshift' AND ProdCode='LD5204354' AND FactoryId='1'";
@@ -498,6 +506,19 @@ namespace ButcherLabels
             textEdit_Barcode.Enabled = true;
             simpleButton_Cancel.Enabled = false;
         }
+
+        private void btnTestAppDB_Click(object sender, EventArgs e)
+        {
+            SqlConn conn = new SqlConn(DbConnectionString());
+            ConnectionTest(conn);
+        }
+
+        private void btnTestSIDB_Click(object sender, EventArgs e)
+        {
+            SqlConn conn = new SqlConn(SIConnectionString());
+            ConnectionTest(conn);
+        }
+        
         #endregion
 
     }

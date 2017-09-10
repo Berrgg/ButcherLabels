@@ -130,5 +130,17 @@ namespace ButcherLabels.Properties {
                 this["AppDbServer"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IsFirstOpen {
+            get {
+                return ((int)(this["IsFirstOpen"]));
+            }
+            set {
+                this["IsFirstOpen"] = value;
+            }
+        }
     }
 }

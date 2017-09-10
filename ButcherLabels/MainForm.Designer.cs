@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.XtraEditors.TileItemElement tileItemElement1 = new DevExpress.XtraEditors.TileItemElement();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraEditors.TileItemElement tileItemElement2 = new DevExpress.XtraEditors.TileItemElement();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tileNavPane1 = new DevExpress.XtraBars.Navigation.TileNavPane();
             this.navBtnHome = new DevExpress.XtraBars.Navigation.NavButton();
@@ -99,6 +99,8 @@
             this.btnFactoryEK = new DevExpress.XtraEditors.SimpleButton();
             this.btnFactoryQNS = new DevExpress.XtraEditors.SimpleButton();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.btnTestAppDB = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTestSIDB = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.tileNavPane1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.navigationFrame1)).BeginInit();
             this.navigationFrame1.SuspendLayout();
@@ -211,8 +213,8 @@
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
             this.tileNavCatButcher.Tile.AppearanceItem.Normal.Options.UseFont = true;
             this.tileNavCatButcher.Tile.DropDownOptions.BeakColor = System.Drawing.Color.Empty;
-            tileItemElement1.Text = "Butcher\'s labels";
-            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement1);
+            tileItemElement2.Text = "Butcher\'s labels";
+            this.tileNavCatButcher.Tile.Elements.Add(tileItemElement2);
             this.tileNavCatButcher.Tile.Name = "tileBarItem2";
             // 
             // navigationFrame1
@@ -284,9 +286,9 @@
             // 
             // gridControl_Batch
             // 
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gridControl_Batch.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControl_Batch.Location = new System.Drawing.Point(12, 232);
             this.gridControl_Batch.MainView = this.gridView_Batch;
             this.gridControl_Batch.Name = "gridControl_Batch";
@@ -666,6 +668,8 @@
             // navigationPage2
             // 
             this.navigationPage2.Caption = "navigationPage2";
+            this.navigationPage2.Controls.Add(this.btnTestSIDB);
+            this.navigationPage2.Controls.Add(this.btnTestAppDB);
             this.navigationPage2.Controls.Add(this.txtAppServer);
             this.navigationPage2.Controls.Add(this.btnClose);
             this.navigationPage2.Controls.Add(this.btnSave);
@@ -699,7 +703,7 @@
             // 
             this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnClose.Appearance.Options.UseFont = true;
-            this.btnClose.Location = new System.Drawing.Point(567, 462);
+            this.btnClose.Location = new System.Drawing.Point(574, 482);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(154, 41);
             this.btnClose.TabIndex = 16;
@@ -710,7 +714,7 @@
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Location = new System.Drawing.Point(387, 462);
+            this.btnSave.Location = new System.Drawing.Point(381, 482);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(154, 41);
             this.btnSave.TabIndex = 15;
@@ -854,7 +858,6 @@
             // 
             // navigationPage3
             // 
-            this.navigationPage3.Caption = "navigationPage3";
             this.navigationPage3.Controls.Add(this.btnFactoryEK);
             this.navigationPage3.Controls.Add(this.btnFactoryQNS);
             this.navigationPage3.Name = "navigationPage3";
@@ -887,6 +890,28 @@
             // dxValidationProvider1
             // 
             this.dxValidationProvider1.ValidationMode = DevExpress.XtraEditors.DXErrorProvider.ValidationMode.Auto;
+            // 
+            // btnTestAppDB
+            // 
+            this.btnTestAppDB.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnTestAppDB.Appearance.Options.UseFont = true;
+            this.btnTestAppDB.Location = new System.Drawing.Point(201, 409);
+            this.btnTestAppDB.Name = "btnTestAppDB";
+            this.btnTestAppDB.Size = new System.Drawing.Size(334, 41);
+            this.btnTestAppDB.TabIndex = 18;
+            this.btnTestAppDB.Text = "Test connection";
+            this.btnTestAppDB.Click += new System.EventHandler(this.btnTestAppDB_Click);
+            // 
+            // btnTestSIDB
+            // 
+            this.btnTestSIDB.Appearance.Font = new System.Drawing.Font("Tahoma", 14F);
+            this.btnTestSIDB.Appearance.Options.UseFont = true;
+            this.btnTestSIDB.Location = new System.Drawing.Point(574, 409);
+            this.btnTestSIDB.Name = "btnTestSIDB";
+            this.btnTestSIDB.Size = new System.Drawing.Size(334, 41);
+            this.btnTestSIDB.TabIndex = 19;
+            this.btnTestSIDB.Text = "Test connection";
+            this.btnTestSIDB.Click += new System.EventHandler(this.btnTestSIDB_Click);
             // 
             // MainForm
             // 
@@ -1024,6 +1049,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem14;
         private DevExpress.XtraLayout.LayoutControlItem layoutControl_CancelButton;
         private DevExpress.XtraEditors.TextEdit txtAppServer;
+        private DevExpress.XtraEditors.SimpleButton btnTestSIDB;
+        private DevExpress.XtraEditors.SimpleButton btnTestAppDB;
     }
 }
 
