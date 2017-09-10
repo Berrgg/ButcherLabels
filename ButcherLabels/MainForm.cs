@@ -433,6 +433,7 @@ namespace ButcherLabels
                 sett.IsFirstOpen = 1;
                 sett.Save();
                 SetApplication();
+                navigationFrame1.SelectedPage = navigationPage3;
             }
         }
 
