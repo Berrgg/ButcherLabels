@@ -20,6 +20,18 @@ namespace ButcherLabels
         public MainForm()
         {
             InitializeComponent();
+
+            if (Properties.Settings.Default.IsFirstOpen == 0)
+            {
+                SetSettingsPage();
+                navigationFrame1.SelectedPage = navigationPage2;
+            }
+            else
+                SetApplication();
+        }
+
+        private void SetApplication()
+        {
             SetButchersLabels();
             SetControlValidation_ButcherLabels();
             SetDataTableForGridViewBatch();
@@ -357,6 +369,19 @@ namespace ButcherLabels
                 XtraMessageBox.Show("Connection test successful.", "Connection test", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void SetSettingsPage()
+        {
+            var sett = Properties.Settings.Default;
+            txtServer.EditValue = sett.ServerQNS;
+            txtDatabase.EditValue = sett.Database;
+            txtDatabaseSI.EditValue = sett.DatabaseSI;
+            txtUserName.EditValue = sett.User;
+            txtUserNameSI.EditValue = sett.UserSI;
+            txtPassword.EditValue = sett.Password;
+            txtPasswordSI.EditValue = sett.PasswordSI;
+            txtAppServer.EditValue = sett.AppDbServer;
+        }
+
         private void XmlDataForReport()
         {
             string sqlQuery = "SELECT ProductionDate, ProdDescription, RawMaterialDescription, Customer, Shift, LabelDescription as Color, Lot, PalletId, Udf2, Udf3, Udf4, KillDate, LabelBatchNumber AS Batch FROM tblButcherLabelsData WHERE ProductionDate = '09/05/2017' AND Customer='Lidl' AND Shift='Dayshift' AND ProdCode='LD5204354' AND FactoryId='1'";
@@ -372,16 +397,7 @@ namespace ButcherLabels
         private void navBtnSettings_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
         {
             navigationFrame1.SelectedPage = navigationPage2;
-
-            var sett = Properties.Settings.Default;
-            txtServer.EditValue = sett.ServerQNS;
-            txtDatabase.EditValue = sett.Database;
-            txtDatabaseSI.EditValue = sett.DatabaseSI;
-            txtUserName.EditValue = sett.User;
-            txtUserNameSI.EditValue = sett.UserSI;
-            txtPassword.EditValue = sett.Password;
-            txtPasswordSI.EditValue = sett.PasswordSI;
-            txtAppServer.EditValue = sett.AppDbServer;
+            SetSettingsPage();
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -411,6 +427,13 @@ namespace ButcherLabels
             sett.PasswordSI = txtPasswordSI.Text;
             sett.AppDbServer = txtAppServer.Text;
             sett.Save();
+
+            if (sett.IsFirstOpen == 0)
+            {
+                sett.IsFirstOpen = 1;
+                sett.Save();
+                SetApplication();
+            }
         }
 
         private void btnFactoryQNS_Click(object sender, EventArgs e)
